@@ -1,0 +1,21 @@
+.App {
+          font: 16px/1.5 'Verdana', sans-serif;
+}
+
+/* Remove all default whitespace */
+* {
+          padding: 0;
+          margin: 0;
+}
+
+/* Reser CSS Box Model sizing calc */
+
+html {
+          box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+          box-sizing: inherit;
+}
