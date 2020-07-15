@@ -10,6 +10,21 @@
 }
 
 .header-a:hover {
-          /* border-top: 1.5px solid #ff8c00; */
+          color: #ff8c00;
+}
+
+.footer-a {
+          display: block;
+          padding: 1em 1em;
+          color: #eee;
+          text-decoration: none;
+          font-size: 18px;
+}
+
+.footer-link {
+          /* display: inline-block; */
+}
+
+.footer-a:hover {
           color: #ff8c00;
 }
