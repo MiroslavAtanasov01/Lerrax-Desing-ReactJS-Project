@@ -3,8 +3,8 @@ import styles from './index.module.css'
 
 const Link = ({ title, href, type }) => {
     return (
-        <div className={styles["header-link"]}>
-            <a href={href} className={styles["header-a"]}>
+        <div className={styles[`${type}-link`]}>
+            <a href={href} className={styles[`${type}-a`]}>
                 {title}
             </a>
         </div>
