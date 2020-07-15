@@ -10,6 +10,6 @@
 }
 
 .header-a:hover {
-          border-bottom: 1px solid rgb(0, 101, 126);
-          border-top: 1px solid rgb(0, 101, 126);
+          /* border-top: 1.5px solid #ff8c00; */
+          color: #ff8c00;
 }

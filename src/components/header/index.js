@@ -14,6 +14,7 @@ const Header = () => {
                 <Link href="#" title="Shops" type="header" />
                 <Link href="#" title="About us" type="header" />
                 <Link href="#" title="Contacts" type="header" />
+                <Link href="#" title="Logout" type="header" />
                 <input className={styles.search} type="text" placeholder="Search" />
             </div>
         </header>

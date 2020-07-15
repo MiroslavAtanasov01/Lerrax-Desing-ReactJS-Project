@@ -1,0 +1,27 @@
+.container {
+          max-width: 90em;
+          margin: 0 auto;
+}
+
+.mainImg {
+          width: 1500px;
+          margin: 0 auto;
+          max-width: 100%;
+          height: auto;
+}
+
+.delivery {
+          display: block;
+          padding-top: 3em;
+          width: 1000px;
+          margin: 0 auto;
+          max-width: 100%;
+          height: auto;
+}
+
+.p {
+          text-align: center;
+          font-size: 25px;
+          padding-top: 2em;
+          padding-bottom: 1em;
+}
