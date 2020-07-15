@@ -1,13 +1,10 @@
 .nav {
           text-align: left;
           /* padding-top: 0.5em; */
-          /* background-color: #e6ffff; */
 }
 
 .div {
-          /* padding-top: 1em; */
           padding-left: 2.5em;
-          /* padding-bottom: 2.5em; */
 }
 
 .search {
@@ -29,5 +26,4 @@
 .logo {
           width: 150px;
           height: auto;
-          /* margin-right: 100px; */
 }
