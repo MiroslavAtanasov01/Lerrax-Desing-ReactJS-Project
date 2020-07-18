@@ -3,14 +3,16 @@
           color: #eee;
           border-top: 1px solid black;
           text-align: center;
-          /* padding-top: 0.5em; */
 }
 
-.p {
+.copyRight {
           text-align: center;
           margin: 0;
+          padding: 1em;
 }
 
-.div {
-          padding-left: 2.5em;
+.a {
+          margin-right: 1em;
+          color: #eee;
+          text-decoration: none;
 }
