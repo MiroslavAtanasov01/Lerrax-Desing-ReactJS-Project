@@ -1,0 +1,11 @@
+.info {
+          display: inline-block;
+          padding: 3em;
+          margin: 0 auto;
+}
+
+.p {
+          margin: 0;
+          font-size: 14px;
+          color: rgb(150, 149, 149);
+}
