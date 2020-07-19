@@ -9,8 +9,16 @@ const Header = () => {
 
     return (
         <header className={styles.nav}>
+            <div className={styles.logo}>
+                <Link
+                    key='Lerrax Design'
+                    href='/'
+                    title='Lerrax Design'
+                    type="logo"
+                />
+                <input className={styles.search} type="text" placeholder="Search" />
+            </div>
             <div className={styles.div}>
-                <img className={styles.logo} src={logo}></img>
                 {
                     links.map(navElement => {
                         return (
@@ -23,7 +31,7 @@ const Header = () => {
                         )
                     })
                 }
-                <input className={styles.search} type="text" placeholder="Search" />
+
             </div>
         </header>
     )

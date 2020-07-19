@@ -36,3 +36,18 @@
 .login-a:hover {
           color: #016ea5;
 }
+
+.logo-link {
+          display: inline-block;
+}
+.logo-a {
+          display: block;
+          color: black;
+          padding: 0 1em;
+          text-decoration: none;
+          font-size: 26px;
+}
+
+.logo-a:hover {
+          color: #ff8c00;
+}
