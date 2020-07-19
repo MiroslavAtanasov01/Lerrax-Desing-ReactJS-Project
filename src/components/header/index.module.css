@@ -1,10 +1,18 @@
 .nav {
-          text-align: left;
+          text-align: center;
           /* padding-top: 0.5em; */
+
+          /* display: flex;
+          justify-content: space-between;
+          align-items: center; */
 }
 
 .div {
           padding-left: 2.5em;
+}
+
+.logo {
+          padding: 1em;
 }
 
 .search {
@@ -21,9 +29,4 @@
 .search:focus {
           border: 1.5px solid #009688;
           background-color: white;
-}
-
-.logo {
-          width: 150px;
-          height: auto;
 }
