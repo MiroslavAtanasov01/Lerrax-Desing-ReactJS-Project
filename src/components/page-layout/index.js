@@ -1,15 +1,14 @@
-import React from 'react';
-import styles from './index.module.css'
+import React from 'react'
 import Header from '../header'
-import Main from '../main'
+import styles from './index.module.css'
 import Footer from '../footer'
 
-const PageLayout = () => {
+const PageLayout = (props) => {
     return (
         <div className={styles.app}>
             <Header />
             <div>
-                <Main />
+                {props.children}
             </div>
             <Footer />
         </div>
