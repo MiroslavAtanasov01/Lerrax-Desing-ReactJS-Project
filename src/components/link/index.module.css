@@ -12,3 +12,27 @@
 .header-a:hover {
           color: #ff8c00;
 }
+
+.register-a {
+          display: block;
+          padding: 0 1em;
+          color: #004466;
+          text-decoration: none;
+          /* font-size: 18px; */
+}
+
+.register-a:hover {
+          color: #016ea5;
+}
+
+.login-a {
+          display: block;
+          padding: 0 1em;
+          color: #004466;
+          text-decoration: none;
+          /* font-size: 18px; */
+}
+
+.login-a:hover {
+          color: #016ea5;
+}

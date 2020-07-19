@@ -1,0 +1,22 @@
+.container {
+          padding: 1em;
+          width: 100%;
+          /* background-color: lightskyblue; */
+}
+
+.label {
+          text-align: left;
+          font-size: 20px;
+          color: #004466;
+}
+
+.input {
+          width: 100%;
+          border: none;
+          border-bottom: 0.00000001em solid black;
+          height: 35px;
+}
+
+.inner-container {
+          text-align: left;
+}

@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { Component } from 'react'
 import styles from './index.module.css'
 import PageLayout from '../../components/page-layout'
+import Main from '../../components/main'
 
-const Publications = () => {
 
+const Products = () => {
     return (
         <PageLayout>
+            <Main />
         </PageLayout>
     )
 }
 
-export default Publications
+export default Products

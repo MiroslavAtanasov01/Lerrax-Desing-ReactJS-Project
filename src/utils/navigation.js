@@ -6,10 +6,6 @@ const getNavigation = (userId) => {
             link: "/"
         },
         {
-            title: "Brochure",
-            link: "/brochure"
-        },
-        {
             title: "Contacts",
             link: "/contacts"
         },
