@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './index.module.css'
-import { faFacebook, faTwitter, faInstagram } from "@fortawesome/free-brands-svg-icons"
+import { faFacebook, faTwitter, faInstagram, faYoutube, faLinkedin } from "@fortawesome/free-brands-svg-icons"
 import FooterLink from '../footer-link'
 import Icons from '../icons'
 
@@ -9,9 +9,11 @@ const Footer = () => {
         <footer className={styles.footer}>
             <div>
                 <h3>Follow us</h3>
-                <Icons href="https://www.facebook.com/learnbuildteach/" icon={faFacebook} />
-                <Icons href="https://www.facebook.com/learnbuildteach/" icon={faTwitter} />
-                <Icons href="https://www.facebook.com/learnbuildteach/" icon={faInstagram} />
+                <Icons href="https://www.youtube.com" icon={faYoutube} />
+                <Icons href="https://www.linkedin.com" icon={faLinkedin} />
+                <Icons href="https://www.facebook.com" icon={faFacebook} />
+                <Icons href="https://www.twitter.com" icon={faTwitter} />
+                <Icons href="https://www.instagram.com" icon={faInstagram} />
             </div>
 
             <section className={styles.section}>
