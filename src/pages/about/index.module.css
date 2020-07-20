@@ -1,0 +1,26 @@
+* {
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+          padding: 0;
+          margin: 0;
+}
+
+.container {
+          position: relative;
+          height: auto;
+          max-width: 70em;
+          margin: 0 auto;
+          padding: 3em;
+}
+
+.h2 {
+          color: #ff8c00;
+}
+
+.text {
+          padding: 2em;
+}
+
+.p {
+          padding: 0.5em;
+}
