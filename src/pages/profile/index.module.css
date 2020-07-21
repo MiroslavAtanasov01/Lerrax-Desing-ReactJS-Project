@@ -1,0 +1,29 @@
+.container {
+          height: 80vh;
+          max-width: 70em;
+          margin: 0 auto;
+}
+
+.h1 {
+          padding-top: 1em;
+          padding-bottom: 1em;
+          text-align: center;
+}
+
+.div {
+          text-align: center;
+          padding-bottom: 3em;
+}
+
+.div2 {
+          padding-top: 3em;
+          width: 30%;
+          margin: 0 auto;
+}
+
+.ul {
+          list-style-type: none;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+}

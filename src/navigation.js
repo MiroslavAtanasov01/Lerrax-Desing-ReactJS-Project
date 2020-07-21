@@ -7,6 +7,7 @@ import LoginPage from './pages/login'
 import ErrorPage from './pages/error'
 import AboutUsPage from './pages/about'
 import ContactsPage from './pages/contacts'
+import ProfilePage from './pages/profile'
 
 const Navigation = () => {
     return (
@@ -15,6 +16,7 @@ const Navigation = () => {
                 <Route path="/" exact component={Products} />
                 <Route path="/register" component={RegisterPage} />
                 <Route path="/login" component={LoginPage} />
+                <Route path="/profile/:id" component={ProfilePage} />
                 <Route path="/about" component={AboutUsPage} />
                 <Route path="/contacts" component={ContactsPage} />
                 <Route component={ErrorPage} />
