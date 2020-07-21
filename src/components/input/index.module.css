@@ -1,22 +1,42 @@
-.container {
+.login-container {
           padding: 1em;
           width: 100%;
-          /* background-color: lightskyblue; */
 }
 
-.label {
+.login-label {
           text-align: left;
           font-size: 20px;
-          color: #234465;
+          color: #2f4858;
 }
 
-.input {
+.login-input {
           width: 100%;
           border: none;
           border-bottom: 0.00000001em solid black;
           height: 35px;
 }
 
-.inner-container {
+.login-inner-container {
           text-align: left;
+}
+
+.contacts-container {
+          padding-bottom: 1em;
+}
+
+.contacts-label {
+          text-align: left;
+          font-size: 20px;
+          color: #2f4858;
+}
+
+.contacts-inner-container {
+          width: 100%;
+}
+
+.contacts-input {
+          width: 100%;
+          background-color: rgb(241, 241, 241);
+          border: none;
+          height: 40px;
 }

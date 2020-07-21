@@ -36,24 +36,28 @@ class RegisterPage extends Component {
                         onChange={(e) => this.onChange(e, 'email')}
                         label="Email"
                         id="email"
+                        type='login'
                     />
                     <Input
                         value={username}
                         onChange={(e) => this.onChange(e, 'username')}
                         label="Username"
                         id="username"
+                        type='login'
                     />
                     <Input
                         value={password}
                         onChange={(e) => this.onChange(e, 'password')}
                         label="Password"
                         id="password"
+                        type='login'
                     />
                     <Input
                         value={rePassword}
                         onChange={(e) => this.onChange(e, 'rePassword')}
                         label="Re-password"
                         id="re-password"
+                        type='login'
                     />
                     <button className={styles.button}>Register</button>
                     <div className={styles.div}>

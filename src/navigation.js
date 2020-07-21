@@ -5,7 +5,8 @@ import Products from './pages/products'
 import RegisterPage from './pages/register'
 import LoginPage from './pages/login'
 import ErrorPage from './pages/error'
-import AboutUs from './pages/about'
+import AboutUsPage from './pages/about'
+import ContactsPage from './pages/contacts'
 
 const Navigation = () => {
     return (
@@ -14,7 +15,8 @@ const Navigation = () => {
                 <Route path="/" exact component={Products} />
                 <Route path="/register" component={RegisterPage} />
                 <Route path="/login" component={LoginPage} />
-                <Route path="/about" component={AboutUs} />
+                <Route path="/about" component={AboutUsPage} />
+                <Route path="/contacts" component={ContactsPage} />
                 <Route component={ErrorPage} />
             </Switch>
         </BrowserRouter>

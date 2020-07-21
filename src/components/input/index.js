@@ -1,14 +1,14 @@
 import React from 'react'
 import styles from './index.module.css'
 
-const Input = ({ label, id, value, onChange, placeholder }) => {
+const Input = ({ label, id, value, onChange, placeholder, type }) => {
 
     return (
-        <div className={styles.container}>
-            <div className={styles['inner-container']}>
-                <label className={styles.label} htmlFor={id}>{label}</label>
+        <div className={styles[`${type}-container`]}>
+            <div className={styles[`${type}-inner-container`]}>
+                <label className={styles[`${type}-label`]} htmlFor={id}>{label}</label>
             </div>
-            <input className={styles.input} id={id} value={value} onChange={onChange} placeholder={placeholder} />
+            <input className={styles[`${type}-input`]} id={id} value={value} onChange={onChange} placeholder={placeholder} />
         </div>
     )
 
