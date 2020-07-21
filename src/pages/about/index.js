@@ -3,7 +3,7 @@ import styles from './index.module.css'
 import PageLayout from '../../components/page-layout'
 
 
-const AboutUs = () => {
+const AboutUsPage = () => {
     return (
         <PageLayout>
             <div className={styles.container}>
@@ -50,4 +50,4 @@ const AboutUs = () => {
     )
 }
 
-export default AboutUs
+export default AboutUsPage

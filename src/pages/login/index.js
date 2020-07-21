@@ -34,12 +34,14 @@ class LoginPage extends Component {
                         onChange={(e) => this.onChange(e, 'email')}
                         label="Email"
                         id="email"
+                        type='login'
                     />
                     <Input
                         value={password}
                         onChange={(e) => this.onChange(e, 'password')}
                         label="Password"
                         id="password"
+                        type='login'
                     />
                     <button className={styles.button}>Login</button>
                     <div className={styles.div}>
