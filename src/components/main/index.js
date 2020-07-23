@@ -3,6 +3,7 @@ import styles from './index.module.css'
 import mainImg from '../../images/Bring-the-outdoors-in-BAh.jpg'
 import delivery from '../../images/Marketing-Module.jpg'
 import Article from '../article'
+import Aside from '../aside'
 
 
 class Main extends Component {
@@ -41,7 +42,11 @@ class Main extends Component {
 
         return (
             <div className={styles.container}>
-                <img className={styles.mainImg} src={mainImg}></img>
+                <h1 className={styles.h1}>Furniture</h1>
+                <div className={styles['inner-container']}>
+                    <Aside />
+                    <img className={styles.mainImg} src={mainImg}></img>
+                </div>
                 <p className={styles.p}>Popular Across Site</p>
                 <div>
                     {this.renderArticles()}
