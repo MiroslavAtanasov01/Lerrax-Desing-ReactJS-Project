@@ -13,6 +13,21 @@
           color: #ff8c00;
 }
 
+.aside-link {
+          /* display: inline-block; */
+}
+.aside-a {
+          display: block;
+          padding: 0.5em 0.5em;
+          color: black;
+          text-decoration: none;
+}
+
+.aside-a:hover {
+          background-color: rgb(247, 247, 247);
+          border-left: solid #234465;
+}
+
 .register-a {
           display: block;
           padding: 0 1em;
