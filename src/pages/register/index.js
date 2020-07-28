@@ -23,13 +23,43 @@ class RegisterPage extends Component {
         this.setState(newState)
     }
 
+    onSubmit = async (event) => {
+        event.preventDefault()
+
+        const { email, username, password, rePassword } = this.state
+
+        if (email && username && password && rePassword && password === rePassword) {
+            try {
+                const promise = await fetch('http://localhost:8888/api/user/register', {
+                    method: 'POST',
+                    body: JSON.stringify({ email, username, password, rePassword }),
+                    headers: { 'COntent-type': 'application/json' }
+                })
+                const authToken = promise.headers.get('Authorization')
+                document.cookie = `auth-token=${authToken}`
+
+                const response = await promise.json()
+
+                if (response.email && authToken) {
+                    this.props.history.push('/')
+                } else {
+                    this.props.history.push('/register')
+                }
+            } catch (e) {
+                console.log(e);
+            }
+        } else {
+            this.props.history.push('/register')
+        }
+    }
+
 
     render() {
         const { email, username, password, rePassword } = this.state
 
         return (
             <PageLayout>
-                <div className={styles.container}>
+                <form className={styles.container} onSubmit={this.onSubmit}>
                     <h1 className={styles.h1}>Register</h1>
                     <Input
                         value={email}
@@ -51,6 +81,7 @@ class RegisterPage extends Component {
                         label="Password"
                         id="password"
                         type='login'
+                        name='password'
                     />
                     <Input
                         value={rePassword}
@@ -58,8 +89,9 @@ class RegisterPage extends Component {
                         label="Re-password"
                         id="re-password"
                         type='login'
+                        name='password'
                     />
-                    <button className={styles.button}>Register</button>
+                    <button className={styles.button} type='submit'>Register</button>
                     <div className={styles.div}>
                         <span>Already have an account?</span>
                         <Link
@@ -69,7 +101,7 @@ class RegisterPage extends Component {
                             type='register'
                         />
                     </div>
-                </div>
+                </form>
             </PageLayout>
         )
     }

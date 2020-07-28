@@ -21,13 +21,42 @@ class LoginPage extends Component {
         this.setState(newState)
     }
 
+    onSubmit = async (event) => {
+        event.preventDefault()
+
+        const { email, password } = this.state
+
+        if (email && password) {
+            try {
+                const promise = await fetch('http://localhost:8888/api/user/login', {
+                    method: 'POST',
+                    body: JSON.stringify({ email, password }),
+                    headers: { 'COntent-type': 'application/json' }
+                })
+                const authToken = promise.headers.get('Authorization')
+                document.cookie = `auth-token=${authToken}`
+
+                const response = await promise.json()
+
+                if (response.email && authToken) {
+                    this.props.history.push('/')
+                } else {
+                    this.props.history.push('/login')
+                }
+            } catch (e) {
+                console.log(e);
+            }
+        } else {
+            this.props.history.push('/login')
+        }
+    }
 
     render() {
         const { email, password, } = this.state
 
         return (
             <PageLayout>
-                <div className={styles.container}>
+                <form className={styles.container} onSubmit={this.onSubmit}>
                     <h1 className={styles.h1}>Login</h1>
                     <Input
                         value={email}
@@ -37,13 +66,14 @@ class LoginPage extends Component {
                         type='login'
                     />
                     <Input
+                        name='password'
                         value={password}
                         onChange={(e) => this.onChange(e, 'password')}
                         label="Password"
                         id="password"
                         type='login'
                     />
-                    <button className={styles.button}>Login</button>
+                    <button className={styles.button} type='submit'>Login</button>
                     <div className={styles.div}>
                         <span>Don`t have an account?</span>
                         <Link
@@ -53,7 +83,7 @@ class LoginPage extends Component {
                             type='login'
                         />
                     </div>
-                </div>
+                </form>
             </PageLayout>
         )
     }
