@@ -16,7 +16,6 @@ const auth = (redirectUnauthenticated = true) => {
                 return;
             }
 
-            res.redirect('/user/login')
             next(err);
         }
     };

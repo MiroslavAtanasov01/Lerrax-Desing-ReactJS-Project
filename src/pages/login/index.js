@@ -3,6 +3,7 @@ import styles from './index.module.css'
 import PageLayout from '../../components/page-layout'
 import Input from '../../components/input'
 import Link from '../../components/link'
+import UserContext from '../../Context'
 
 class LoginPage extends Component {
     constructor(props) {
@@ -13,6 +14,9 @@ class LoginPage extends Component {
             password: "",
         }
     }
+
+
+    static contextType = UserContext
 
     onChange = (event, type) => {
         const newState = {}
@@ -39,6 +43,10 @@ class LoginPage extends Component {
                 const response = await promise.json()
 
                 if (response.email && authToken) {
+                    this.context.logIn({
+                        email: response.email,
+                        id: response._id
+                    })
                     this.props.history.push('/')
                 } else {
                     this.props.history.push('/login')

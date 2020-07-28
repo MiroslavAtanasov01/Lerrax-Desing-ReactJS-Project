@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styles from './index.module.css'
 import PageLayout from '../../components/page-layout'
 import { Redirect } from 'react-router-dom'
+import UserContext from '../../Context'
 
 class ProfilePage extends Component {
     constructor(props) {
@@ -14,6 +15,8 @@ class ProfilePage extends Component {
             wishList: ''
         }
     }
+
+    static contextType = UserContext
 
     componentDidMount() {
         this.getUser(this.props.match.params.id)
@@ -31,34 +34,34 @@ class ProfilePage extends Component {
 
         this.setState({
             username: user.username,
+            email: user.email
         })
     }
 
-    // onChange = (event, type) => {
-    //     const newState = {}
-    //     newState[type] = event.target.value
-
-    //     this.setState(newState)
-    // }
+    logOut = () => {
+        this.context.logOut()
+        this.props.history.push('/')
+    }
 
     render() {
         const { username, email, wishList, orders } = this.state
 
-        // if (!username) {
-        //     return (
-        //         <PageLayout>
-        //             <div className={styles.container}>Loading....</div>
-        //         </PageLayout>
-        //     )
-        // }
+        if (!username) {
+            return (
+                <PageLayout>
+                    <div className={styles.container}>Loading....</div>
+                </PageLayout>
+            )
+        }
 
         return (
             <PageLayout>
                 <div className={styles.container}>
                     <h1 className={styles.h1}>My Account</h1>
                     <div className={styles.div}>
-                        <p>Name: Miroslav</p>
-                        <p>E-mail: Miroslav@abv.bg</p>
+                        <p>Name: {username}</p>
+                        <p>E-mail: {email}</p>
+                        <button onClick={this.logOut}>Logout</button>
                     </div>
                     <div className={styles.div2}>
                         <ul className={styles.ul}>
