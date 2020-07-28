@@ -3,6 +3,7 @@ import styles from './index.module.css'
 import PageLayout from '../../components/page-layout'
 import Input from '../../components/input'
 import Link from '../../components/link'
+import UserContext from '../../Context'
 
 class RegisterPage extends Component {
     constructor(props) {
@@ -15,6 +16,8 @@ class RegisterPage extends Component {
             rePassword: ""
         }
     }
+
+    static contextType = UserContext
 
     onChange = (event, type) => {
         const newState = {}
@@ -41,6 +44,10 @@ class RegisterPage extends Component {
                 const response = await promise.json()
 
                 if (response.email && authToken) {
+                    this.props.context.login({
+                        email: response.email,
+                        id: response._id
+                    })
                     this.props.history.push('/')
                 } else {
                     this.props.history.push('/register')
