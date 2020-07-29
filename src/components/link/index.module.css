@@ -3,14 +3,49 @@
 }
 .header-a {
           display: block;
-          padding: 1em 1em;
           color: black;
           text-decoration: none;
-          font-size: 18px;
+          font-size: 16px;
+          border-bottom: 1px solid transparent;
+          position: relative;
+          margin: 0 5px;
+          padding: 10px 10px 15px;
 }
 
 .header-a:hover {
-          color: #ff8c00;
+          color: #016ea5;
+          border-bottom: 0.5px solid black;
+}
+
+.tools-link {
+          display: inline-block;
+}
+.tools-a {
+          padding-right: 0.5em;
+          display: block;
+          color: #016ea5;
+          text-decoration: none;
+          font-size: 14px;
+}
+
+.tools-a:hover {
+          color: black;
+}
+
+.logo-link {
+          /* padding-left: 15em; */
+          display: inline-block;
+          text-align: center;
+}
+.logo-a {
+          display: block;
+          color: black;
+          text-decoration: none;
+          font-size: 30px;
+}
+
+.logo-a:hover {
+          color: #016ea5;
 }
 
 .aside-link {
@@ -50,21 +85,6 @@
 
 .login-a:hover {
           color: #016ea5;
-}
-
-.logo-link {
-          display: inline-block;
-}
-.logo-a {
-          display: block;
-          color: black;
-          padding: 0 1em;
-          text-decoration: none;
-          font-size: 26px;
-}
-
-.logo-a:hover {
-          color: #ff8c00;
 }
 
 .error-a {

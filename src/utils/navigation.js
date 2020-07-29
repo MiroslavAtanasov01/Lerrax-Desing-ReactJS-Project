@@ -2,10 +2,6 @@ const getNavigation = (loggedIn, user) => {
 
     const authLinks = [
         {
-            title: "Products",
-            link: "/"
-        },
-        {
             title: "Contacts",
             link: "/contacts"
         },
@@ -21,16 +17,12 @@ const getNavigation = (loggedIn, user) => {
 
     const guestLinks = [
         {
-            title: "Products",
-            link: "/"
-        },
-        {
-            title: "Register",
-            link: "/register"
-        },
-        {
-            title: "Login",
+            title: "Log in",
             link: "/login"
+        },
+        {
+            title: "Sign up",
+            link: "/register"
         },
     ]
 
