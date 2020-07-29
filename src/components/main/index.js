@@ -42,7 +42,6 @@ class Main extends Component {
 
         return (
             <div className={styles.container}>
-                <h1 className={styles.h1}>Furniture</h1>
                 <div className={styles['inner-container']}>
                     <Aside />
                     <img className={styles.mainImg} src={mainImg}></img>
