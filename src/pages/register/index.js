@@ -66,50 +66,52 @@ class RegisterPage extends Component {
 
         return (
             <PageLayout>
-                <form className={styles.container} onSubmit={this.onSubmit}>
-                    <h1 className={styles.h1}>Register</h1>
-                    <Input
-                        value={email}
-                        onChange={(e) => this.onChange(e, 'email')}
-                        label="Email"
-                        id="email"
-                        type='login'
-                    />
-                    <Input
-                        value={username}
-                        onChange={(e) => this.onChange(e, 'username')}
-                        label="Username"
-                        id="username"
-                        type='login'
-                    />
-                    <Input
-                        value={password}
-                        onChange={(e) => this.onChange(e, 'password')}
-                        label="Password"
-                        id="password"
-                        type='login'
-                        name='password'
-                    />
-                    <Input
-                        value={rePassword}
-                        onChange={(e) => this.onChange(e, 'rePassword')}
-                        label="Re-password"
-                        id="re-password"
-                        type='login'
-                        name='password'
-                    />
-                    <button className={styles.button} type='submit'>Register</button>
-                    <div className={styles.div}>
-                        <span>Already have an account?</span>
-                        <Link
-                            key='Sign in'
-                            href="/login"
-                            title='Sign in'
-                            type='register'
+                <div className={styles.main}>
+                    <form className={styles.container} onSubmit={this.onSubmit}>
+                        <h1 className={styles.h1}>Register</h1>
+                        <Input
+                            value={email}
+                            onChange={(e) => this.onChange(e, 'email')}
+                            label="Email"
+                            id="email"
+                            type='login'
                         />
-                    </div>
-                </form>
-            </PageLayout>
+                        <Input
+                            value={username}
+                            onChange={(e) => this.onChange(e, 'username')}
+                            label="Username"
+                            id="username"
+                            type='login'
+                        />
+                        <Input
+                            value={password}
+                            onChange={(e) => this.onChange(e, 'password')}
+                            label="Password"
+                            id="password"
+                            type='login'
+                            name='password'
+                        />
+                        <Input
+                            value={rePassword}
+                            onChange={(e) => this.onChange(e, 'rePassword')}
+                            label="Re-password"
+                            id="re-password"
+                            type='login'
+                            name='password'
+                        />
+                        <button className={styles.button} type='submit'>Register</button>
+                        <div className={styles.div}>
+                            <span>Already have an account?</span>
+                            <Link
+                                key='Sign in'
+                                href="/login"
+                                title='Sign in'
+                                type='register'
+                            />
+                        </div>
+                    </form>
+                </div>
+            </PageLayout >
         )
     }
 }

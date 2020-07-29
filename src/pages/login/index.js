@@ -64,34 +64,36 @@ class LoginPage extends Component {
 
         return (
             <PageLayout>
-                <form className={styles.container} onSubmit={this.onSubmit}>
-                    <h1 className={styles.h1}>Login</h1>
-                    <Input
-                        value={email}
-                        onChange={(e) => this.onChange(e, 'email')}
-                        label="Email"
-                        id="email"
-                        type='login'
-                    />
-                    <Input
-                        name='password'
-                        value={password}
-                        onChange={(e) => this.onChange(e, 'password')}
-                        label="Password"
-                        id="password"
-                        type='login'
-                    />
-                    <button className={styles.button} type='submit'>Login</button>
-                    <div className={styles.div}>
-                        <span>Don`t have an account?</span>
-                        <Link
-                            key='Sign up'
-                            href="/register"
-                            title='Sign up'
+                <div className={styles.main}>
+                    <form className={styles.container} onSubmit={this.onSubmit}>
+                        <h1 className={styles.h1}>Login</h1>
+                        <Input
+                            value={email}
+                            onChange={(e) => this.onChange(e, 'email')}
+                            label="Email"
+                            id="email"
                             type='login'
                         />
-                    </div>
-                </form>
+                        <Input
+                            name='password'
+                            value={password}
+                            onChange={(e) => this.onChange(e, 'password')}
+                            label="Password"
+                            id="password"
+                            type='login'
+                        />
+                        <button className={styles.button} type='submit'>Login</button>
+                        <div className={styles.div}>
+                            <span>Don`t have an account?</span>
+                            <Link
+                                key='Sign up'
+                                href="/register"
+                                title='Sign up'
+                                type='login'
+                            />
+                        </div>
+                    </form>
+                </div>
             </PageLayout>
         )
     }
