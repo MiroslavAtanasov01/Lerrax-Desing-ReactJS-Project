@@ -23,10 +23,20 @@ class Header extends Component {
                         type="logo"
                     />
                     <div className={styles.div}>
+                        {
+                            links.map(navElement => {
+                                return (
+                                    <Link
+                                        key={navElement.title}
+                                        href={navElement.link}
+                                        title={navElement.title}
+                                        type="tools"
+                                    />
+                                )
+                            })
+                        }
                         {/* <input className={styles.search} type="text" placeholder="Search" /> */}
-                        <Link href="/login" type="tools" title="Sign in" key="Sign in" > </Link>
-                        <span className={styles.span}>|</span>
-                        <Link href="/register" type="tools" title="Sign up" key="Sign up" > </Link>
+
                     </div>
                 </div>
                 <div className={styles.div1}>

@@ -2,12 +2,8 @@ const getNavigation = (loggedIn, user) => {
 
     const authLinks = [
         {
-            title: "Contacts",
-            link: "/contacts"
-        },
-        {
-            title: "About us",
-            link: "/about"
+            title: "English",
+            link: "/"
         },
         {
             title: "Profile",
@@ -16,6 +12,10 @@ const getNavigation = (loggedIn, user) => {
     ]
 
     const guestLinks = [
+        {
+            title: "English",
+            link: "/"
+        },
         {
             title: "Log in",
             link: "/login"

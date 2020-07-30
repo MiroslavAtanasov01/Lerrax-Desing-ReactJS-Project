@@ -10,6 +10,10 @@ const Aside = () => {
             <Link href="#" type="aside" title="Chairs" key="Chairs" > </Link>
             <Link href="#" type="aside" title="Tables" key="Tables" > </Link>
             <Link href="#" type="aside" title="Beds" key="Beds" > </Link>
+            <Link href="#" type="aside" title="Sofas" key="Sofas" > </Link>
+            <Link href="#" type="aside" title="Chairs" key="Chairs" > </Link>
+            <Link href="#" type="aside" title="Tables" key="Tables" > </Link>
+            <Link href="#" type="aside" title="Beds" key="Beds" > </Link>
             <Link href="#" type="aside" title="Sectionals" key="Sectionals" > </Link>
             <Link href="#" type="aside" title="Leather Seating" key="Leather Seating" > </Link>
         </aside>
