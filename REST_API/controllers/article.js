@@ -3,7 +3,7 @@ const models = require('../models');
 module.exports = {
     get: {
         getAllArticles: (req, res, next) => {
-            models.article.find().populate('creatorId')
+            models.article.find().sort('-created_at').limit(4).populate('creatorId')
                 .then((articles) => res.send(articles))
                 .catch(next);
         },
@@ -15,6 +15,11 @@ module.exports = {
         getChairs: (req, res, next) => {
             models.article.find({ category: 'Chairs' })
                 .then((chairs) => res.send(chairs))
+                .catch(next);
+        },
+        getArticleDetails: (req, res, next) => {
+            models.article.findById(req.params.id)
+                .then((article) => res.send(article))
                 .catch(next);
         },
     },

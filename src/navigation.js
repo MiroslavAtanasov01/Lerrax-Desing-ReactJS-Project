@@ -9,6 +9,7 @@ import AboutUsPage from './pages/about'
 import ContactsPage from './pages/contacts'
 import ProfilePage from './pages/profile'
 import SofasPage from './pages/articles/Sofas'
+import DetailsArticle from './pages/detailsArticle'
 
 const Navigation = () => {
     return (
@@ -20,6 +21,7 @@ const Navigation = () => {
                 <Route path="/profile/:id" component={ProfilePage} />
                 <Route path="/about" component={AboutUsPage} />
                 <Route path="/contacts" component={ContactsPage} />
+                <Route path="/details/:id" component={DetailsArticle} />
                 <Route path="/sofas" component={SofasPage} />
                 <Route component={ErrorPage} />
             </Switch>

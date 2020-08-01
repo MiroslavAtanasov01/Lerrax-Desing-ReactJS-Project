@@ -44,14 +44,14 @@ class Main extends Component {
             <div className={styles.container}>
                 <div className={styles['inner-container']}>
                     <Aside />
-                    <img className={styles.mainImg} src={mainImg}></img>
+                    <img alt='mainImage' className={styles.mainImg} src={mainImg}></img>
                 </div>
                 <p className={styles.p}>Popular Across Site</p>
                 <div>
                     {this.renderArticles()}
                 </div>
                 <p className={styles.p}>Safety Assured</p>
-                <img className={styles.delivery} src={delivery}></img>
+                <img alt='iam' className={styles.delivery} src={delivery}></img>
             </div>
         )
     }
