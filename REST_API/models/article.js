@@ -23,10 +23,6 @@ const ArticleSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-})
-
-// ArticleSchema.path('imageUrl').validate(function (url) {
-//     return url.startsWith('http://') || url.startsWith('https://')
-// }, 'Image url is not valid')
+}, { timestamps: { createdAt: 'created_at' } })
 
 module.exports = mongoose.model('Article', ArticleSchema)

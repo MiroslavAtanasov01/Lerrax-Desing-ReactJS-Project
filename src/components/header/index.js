@@ -43,10 +43,10 @@ class Header extends Component {
                     <Link href="/sofas" type="header" title="Sofas" key="Sofas" > </Link>
                     <Link href="/chairs" type="header" title="Chairs" key="Chairs" > </Link>
                     <Link href="#" type="header" title="Tables" key="Tables" > </Link>
-                    <Link href="#" type="header" title="Tables" key="Tables" > </Link>
-                    <Link href="#" type="header" title="Tables" key="Tables" > </Link>
-                    <Link href="#" type="header" title="Beddawdawdaws" key="Beds" > </Link>
-                    <Link href="#" type="header" title="Beddadws" key="Beds" > </Link>
+                    <Link href="#" type="header" title="Tabless" key="Tabless" > </Link>
+                    <Link href="#" type="header" title="Table" key="Table" > </Link>
+                    <Link href="#" type="header" title="Beddawdawdaws" key="Bed" > </Link>
+                    <Link href="#" type="header" title="Beddadws" key="Bedss" > </Link>
                     <Link href="#" type="header" title="Beds" key="Beds" > </Link>
                     <Link href="#" type="header" title="Sectionals" key="Sectionals" > </Link>
                     <Link href="#" type="header" title="Leather Seating" key="Leather Seating" > </Link>

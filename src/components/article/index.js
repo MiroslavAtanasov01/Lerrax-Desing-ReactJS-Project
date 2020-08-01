@@ -2,8 +2,8 @@ import React from 'react'
 import styles from './index.module.css'
 
 const Article = ({ name, imageUrl }) => {
-    const imageClick = () => {
-
+    const imageClick = (props) => {
+        console.log(props);
     }
 
     return (
