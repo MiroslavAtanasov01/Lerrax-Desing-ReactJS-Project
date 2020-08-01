@@ -3,8 +3,8 @@ const router = require('express').Router();
 const auth = require('../utils/auth')
 
 router.get('/', controllers.article.get.getAllArticles);
-router.get('/', controllers.article.get.getSofas);
-router.get('/', controllers.article.get.getChairs);
+router.get('/sofas', controllers.article.get.getSofas);
+router.get('/chairs', controllers.article.get.getChairs);
 
 router.post('/', auth(), controllers.article.post);
 

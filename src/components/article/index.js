@@ -2,9 +2,13 @@ import React from 'react'
 import styles from './index.module.css'
 
 const Article = ({ name, imageUrl }) => {
+    const imageClick = () => {
+
+    }
+
     return (
         <div className={styles.container}>
-            <img className={styles.image} src={imageUrl}></img>
+            <img alt="article" className={styles.image} src={imageUrl} onClick={() => imageClick()}></img>
             <p className={styles.name}>{name}</p>
         </div>
     )
