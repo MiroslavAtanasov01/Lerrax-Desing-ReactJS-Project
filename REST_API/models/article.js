@@ -15,14 +15,14 @@ const ArticleSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    creatorId: {
-        type: 'ObjectId',
-        ref: 'User'
-    }
+    category: {
+        type: String,
+        required: true
+    },
 })
 
-ArticleSchema.path('imageUrl').validate(function (url) {
-    return url.startsWith('http://') || url.startsWith('https://')
-}, 'Image url is not valid')
+// ArticleSchema.path('imageUrl').validate(function (url) {
+//     return url.startsWith('http://') || url.startsWith('https://')
+// }, 'Image url is not valid')
 
 module.exports = mongoose.model('Article', ArticleSchema)

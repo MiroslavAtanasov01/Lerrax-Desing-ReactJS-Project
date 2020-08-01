@@ -16,6 +16,14 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Password is required!'],
     },
+    wishlist: [{
+        type: 'ObjectId',
+        ref: 'Article'
+    }],
+    orders: [{
+        type: 'ObjectId',
+        ref: 'Article'
+    }],
     articles: [{
         type: 'ObjectId',
         ref: 'Article'

@@ -1,17 +1,29 @@
 const models = require('../models');
 
 module.exports = {
-    get: (req, res, next) => {
-        models.article.find().populate('creatorId')
-            .then((articles) => res.send(articles))
-            .catch(next);
+    get: {
+        getAllArticles: (req, res, next) => {
+            models.article.find().populate('creatorId')
+                .then((articles) => res.send(articles))
+                .catch(next);
+        },
+        getSofas: (req, res, next) => {
+            models.article.find({ category: 'Sofas' })
+                .then((sofas) => res.send(sofas))
+                .catch(next);
+        },
+        getChairs: (req, res, next) => {
+            models.article.find({ category: 'Chairs' })
+                .then((chairs) => res.send(chairs))
+                .catch(next);
+        },
     },
 
     post: (req, res, next) => {
-        const { name, description, imageUrl } = req.body;
+        const { name, description, imageUrl, category } = req.body;
         const { _id } = req.user;
 
-        models.article.create({ name, description, imageUrl, creatorId: _id })
+        models.article.create({ name, description, imageUrl, category, creatorId: _id })
             .then((createdArticle) => {
                 return Promise.all([
                     models.user.updateOne({ _id }, { $push: { articles: createdArticle } }),
