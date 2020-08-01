@@ -40,8 +40,8 @@ class Header extends Component {
                     </div>
                 </div>
                 <div className={styles.div1}>
-                    <Link href="#" type="header" title="Sofas" key="Sofas" > </Link>
-                    <Link href="#" type="header" title="Chairs" key="Chairs" > </Link>
+                    <Link href="/sofas" type="header" title="Sofas" key="Sofas" > </Link>
+                    <Link href="/chairs" type="header" title="Chairs" key="Chairs" > </Link>
                     <Link href="#" type="header" title="Tables" key="Tables" > </Link>
                     <Link href="#" type="header" title="Tables" key="Tables" > </Link>
                     <Link href="#" type="header" title="Tables" key="Tables" > </Link>
