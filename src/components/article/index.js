@@ -1,9 +1,11 @@
 import React from 'react'
 import styles from './index.module.css'
+import { useHistory } from 'react-router-dom'
 
-const Article = ({ name, imageUrl }) => {
-    const imageClick = (props) => {
-        console.log(props);
+const Article = ({ name, imageUrl, description, price, _id }) => {
+    const history = useHistory()
+    const imageClick = () => {
+        history.push(`/details/${_id}`)
     }
 
     return (
