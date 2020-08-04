@@ -3,6 +3,7 @@ import styles from './index.module.css'
 import Article from '../../../components/article'
 import Aside from '../../../components/aside'
 import PageLayout from '../../../components/page-layout'
+import PageTitle from '../../../components/helmet'
 
 
 const Sofas = () => {
@@ -30,6 +31,7 @@ const Sofas = () => {
     return (
         <PageLayout>
             <div className={styles.container}>
+                <PageTitle title="Sofas | Lerrax Design" />
                 <Aside />
                 <div className={styles.main}>
                     {renderSofas()}

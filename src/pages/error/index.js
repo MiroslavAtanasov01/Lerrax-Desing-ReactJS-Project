@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './index.module.css'
 import PageLayout from '../../components/page-layout'
+import PageTitle from '../../components/helmet'
 import Link from '../../components/link'
 
 
@@ -8,6 +9,7 @@ const ErrorPage = () => {
     return (
         <PageLayout>
             <div className={styles.container}>
+                <PageTitle title="Error | Lerrax Design" />
                 <div className={styles.notFound}>
                     <div className={styles['notFound-404']}>
                         <h1 className={styles.h1}>Oops!</h1>

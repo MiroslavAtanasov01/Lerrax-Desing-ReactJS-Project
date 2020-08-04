@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styles from './index.module.css'
 import PageLayout from '../../components/page-layout'
 import Input from '../../components/input'
+import PageTitle from '../../components/helmet'
 
 class ContactsPage extends Component {
     constructor(props) {
@@ -28,6 +29,7 @@ class ContactsPage extends Component {
         return (
             <PageLayout>
                 <div className={styles.container}>
+                    <PageTitle title="Contact us | Lerrax Design" />
                     <div className={styles.div}>
                         <h2 className={styles.h2}>Contact Us</h2>
                         <Input

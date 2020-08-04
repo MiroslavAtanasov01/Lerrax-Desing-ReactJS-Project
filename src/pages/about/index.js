@@ -1,12 +1,14 @@
 import React from 'react'
 import styles from './index.module.css'
 import PageLayout from '../../components/page-layout'
+import PageTitle from '../../components/helmet'
 
 
 const AboutUsPage = () => {
     return (
         <PageLayout>
             <div className={styles.container}>
+                <PageTitle title="About us | Lerrax Design" />
                 <h2 className={styles.h2}>About Us</h2>
                 <div className={styles.text}>
                     <p className={styles.p}>In 2012, we started Lerrax Design with a vision - to make a million homes beautiful.
