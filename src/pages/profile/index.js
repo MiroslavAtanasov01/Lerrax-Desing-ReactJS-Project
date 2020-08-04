@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styles from './index.module.css'
 import PageLayout from '../../components/page-layout'
+import PageTitle from '../../components/helmet'
 import { Redirect } from 'react-router-dom'
 import UserContext from '../../Context'
 
@@ -57,6 +58,7 @@ class ProfilePage extends Component {
         return (
             <PageLayout>
                 <div className={styles.container}>
+                    <PageTitle title={`${username} | Lerrax Design`} />
                     <h1 className={styles.h1}>My Account</h1>
                     <div className={styles.div}>
                         <p>Name: {username}</p>

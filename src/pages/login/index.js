@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styles from './index.module.css'
 import PageLayout from '../../components/page-layout'
+import PageTitle from '../../components/helmet'
 import Input from '../../components/input'
 import Link from '../../components/link'
 import UserContext from '../../Context'
@@ -65,6 +66,7 @@ class LoginPage extends Component {
         return (
             <PageLayout>
                 <div className={styles.main}>
+                    <PageTitle title="Sign in | Lerrax Design" />
                     <form className={styles.container} onSubmit={this.onSubmit}>
                         <h1 className={styles.h1}>Login</h1>
                         <Input

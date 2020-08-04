@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 import styles from './index.module.css'
 import PageLayout from '../../components/page-layout'
+import PageTitle from '../../components/helmet'
 
 
 const DetailsPage = () => {
@@ -43,6 +44,7 @@ const DetailsPage = () => {
     return (
         <PageLayout>
             <div className={styles.container}>
+                <PageTitle title={`${name} | Lerrax Design`} />
                 <p>name: {name}</p>
                 <p>description: {description}</p>
                 <p>price: {price}</p>
