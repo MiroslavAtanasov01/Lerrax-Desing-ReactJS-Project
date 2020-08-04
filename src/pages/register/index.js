@@ -37,7 +37,7 @@ class RegisterPage extends Component {
                 const promise = await fetch('http://localhost:8888/api/user/register', {
                     method: 'POST',
                     body: JSON.stringify({ email, username, password, rePassword }),
-                    headers: { 'COntent-type': 'application/json' }
+                    headers: { 'Content-type': 'application/json' }
                 })
                 const authToken = promise.headers.get('Authorization')
                 document.cookie = `auth-token=${authToken}`
@@ -45,7 +45,7 @@ class RegisterPage extends Component {
                 const response = await promise.json()
 
                 if (response.email && authToken) {
-                    this.props.context.login({
+                    this.context.logIn({
                         email: response.email,
                         id: response._id
                     })

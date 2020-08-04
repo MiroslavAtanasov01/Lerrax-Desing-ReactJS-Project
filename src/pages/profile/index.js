@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import styles from './index.module.css'
 import PageLayout from '../../components/page-layout'
 import PageTitle from '../../components/helmet'
-import { Redirect } from 'react-router-dom'
 import UserContext from '../../Context'
+import Aside from '../../components/aside'
 
 class ProfilePage extends Component {
     constructor(props) {
@@ -27,15 +27,15 @@ class ProfilePage extends Component {
         const response = await fetch(`http://localhost:8888/api/user?id=${id}`)
 
         if (!response.ok) {
-            // this.props.history.push('/error')
-            return <Redirect to='/error' />
+            this.props.history.push('/error')
         }
 
         const user = await response.json()
 
+
         this.setState({
             username: user.username,
-            email: user.email
+            email: user.email,
         })
     }
 
@@ -45,7 +45,7 @@ class ProfilePage extends Component {
     }
 
     render() {
-        const { username, email, wishList, orders } = this.state
+        const { username, email } = this.state
 
         if (!username) {
             return (
@@ -59,17 +59,12 @@ class ProfilePage extends Component {
             <PageLayout>
                 <div className={styles.container}>
                     <PageTitle title={`${username} | Lerrax Design`} />
-                    <h1 className={styles.h1}>My Account</h1>
+                    <Aside />
                     <div className={styles.div}>
+                        <h1 className={styles.h1}>My Account</h1>
                         <p>Name: {username}</p>
                         <p>E-mail: {email}</p>
                         <button onClick={this.logOut}>Logout</button>
-                    </div>
-                    <div className={styles.div2}>
-                        <ul className={styles.ul}>
-                            <li>Orders</li>
-                            <li>Wishlist</li>
-                        </ul>
                     </div>
                 </div>
             </PageLayout >

@@ -23,6 +23,10 @@ const ArticleSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    creatorId: {
+        type: "ObjectId",
+        required: true
+    },
 }, { timestamps: { createdAt: 'created_at' } })
 
 module.exports = mongoose.model('Article', ArticleSchema)
