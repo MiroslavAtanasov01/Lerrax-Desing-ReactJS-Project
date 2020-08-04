@@ -1,11 +1,13 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useContext } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 import styles from './index.module.css'
 import PageLayout from '../../components/page-layout'
 import PageTitle from '../../components/helmet'
+import UserContext from '../../Context'
 
 
 const DetailsPage = () => {
+    const context = useContext(UserContext)
     const [name, setName] = useState(null)
     const [description, setDescription] = useState(null)
     const [price, setPrice] = useState(null)
@@ -32,6 +34,17 @@ const DetailsPage = () => {
         getData()
     }, [getData])
 
+    const onClick = () => {
+        const { user } = context
+        const id = params.id
+
+        fetch(`http://localhost:8888/api/user/${user.id}`, {
+            method: "PUT",
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify({ id })
+        })
+    }
+
 
     if (!name) {
         return (
@@ -45,6 +58,7 @@ const DetailsPage = () => {
         <PageLayout>
             <div className={styles.container}>
                 <PageTitle title={`${name} | Lerrax Design`} />
+                <button onClick={() => onClick()}>Add to wishlist</button>
                 <p>name: {name}</p>
                 <p>description: {description}</p>
                 <p>price: {price}</p>

@@ -3,12 +3,28 @@ const config = require('../config/config');
 const jwt = require('../utils/jwt')
 
 module.exports = {
-    get: (req, res, next) => {
-        models.user.findById(req.query.id)
-            .then((user) => {
-                res.send(user)
-            })
-            .catch((err) => res.status(500).send("Error"))
+    get: {
+        getById: (req, res, next) => {
+            models.user.findById(req.query.id)
+                .then((user) => {
+                    res.send(user)
+                })
+                .catch((err) => res.status(500).send("Error"))
+        },
+        user: (req, res, next) => {
+            models.user.findById(req.params.id).populate('wishlist')
+                .then((user) => {
+                    res.send(user)
+                })
+                .catch((err) => res.status(500).send("Error"))
+        },
+        getAll: (req, res, next) => {
+            models.user.find().populate('wishlist')
+                .then((user) => {
+                    res.send(user)
+                })
+                .catch((err) => res.status(500).send("Error"))
+        },
     },
 
     post: {
@@ -75,8 +91,11 @@ module.exports = {
 
     put: (req, res, next) => {
         const id = req.params.id;
-        const { username, password } = req.body;
-        models.user.update({ _id: id }, { username, password })
+        models.user.findByIdAndUpdate({ _id: id }, {
+            $addToSet: {
+                wishlist: [req.body.id],
+            },
+        })
             .then((updatedUser) => res.send(updatedUser))
             .catch(next)
     },
