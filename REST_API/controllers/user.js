@@ -117,7 +117,7 @@ module.exports = {
             const id = req.params.id;
             models.user.findByIdAndUpdate({ _id: id }, {
                 $addToSet: {
-                    orders: [req.body.id],
+                    orders: req.body.id,
                 },
             })
                 .then((updatedUser) => res.send(updatedUser))
@@ -128,6 +128,26 @@ module.exports = {
             models.user.update({ _id: id }, {
                 $pull: {
                     cart: req.body.id,
+                },
+            })
+                .then((updatedUser) => res.send(updatedUser))
+                .catch(next)
+        },
+        removeWishlist: (req, res, next) => {
+            const id = req.params.id;
+            models.user.update({ _id: id }, {
+                $pull: {
+                    wishlist: req.body.id,
+                },
+            })
+                .then((updatedUser) => res.send(updatedUser))
+                .catch(next)
+        },
+        removeAll: (req, res, next) => {
+            const id = req.params.id;
+            models.user.update({ _id: id }, {
+                $set: {
+                    cart: []
                 },
             })
                 .then((updatedUser) => res.send(updatedUser))
