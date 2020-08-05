@@ -5,7 +5,7 @@ import PageTitle from '../../components/helmet'
 import UserContext from '../../Context'
 
 
-const WishlistPage = () => {
+const CartPage = () => {
     const context = useContext(UserContext)
     const [article, setArticle] = useState([])
     const { user } = context
@@ -14,7 +14,7 @@ const WishlistPage = () => {
         const response = await fetch(`http://localhost:8888/api/user/user/${user.id}`)
         const article = await response.json()
 
-        setArticle(article.wishlist)
+        setArticle(article.cart)
     }
 
     const renderLIst = () => {
@@ -32,6 +32,12 @@ const WishlistPage = () => {
         })
     }
 
+    const total = () => {
+        let total = 0
+        article.map(e => total += e.price)
+        return total
+    }
+
     useEffect(() => {
         getArticle()
     }, [])
@@ -39,21 +45,29 @@ const WishlistPage = () => {
     if (article.length === 0) {
         return (
             <PageLayout>
-                <div className={styles.empty}>Your wishlist is empty </div>
+                <div className={styles.empty}>Your Shopping cart is empty </div>
             </PageLayout>
         )
     }
 
     return (
-        <PageLayout>
-            <div className={styles.container}>
-                <PageTitle title="Wishlist | Lerrax Design" />
-                <div className={styles.main}>
-                    {renderLIst()}
+        <div>
+            <PageLayout>
+                <div className={styles.container}>
+                    <PageTitle title="Shopping cart | Lerrax Design" />
+                    <div className={styles.main}>
+                        {renderLIst()}
+                    </div>
+                    <div>
+                        <h3>Order Summary</h3>
+                        <p>Total: US ${total()}</p>
+                        <button onClick>Buy</button>
+                    </div>
                 </div>
-            </div>
-        </PageLayout>
+            </PageLayout>
+        </div>
     )
 }
 
-export default WishlistPage
+
+export default CartPage

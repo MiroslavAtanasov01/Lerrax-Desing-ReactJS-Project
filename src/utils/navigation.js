@@ -10,8 +10,12 @@ const getNavigation = (loggedIn, user) => {
             link: "/wishlist"
         },
         {
-            title: "Profile",
+            title: "Account",
             link: `/profile/${user && user.id}`
+        },
+        {
+            title: "Shopping cart",
+            link: "/cartPage"
         },
     ]
 
