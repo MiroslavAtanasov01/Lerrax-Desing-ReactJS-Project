@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
+import { useParams } from 'react-router-dom'
 import styles from './index.module.css'
 import PageLayout from '../../components/page-layout'
 import PageTitle from '../../components/helmet'
@@ -9,6 +10,8 @@ const CartPage = () => {
     const context = useContext(UserContext)
     const [article, setArticle] = useState([])
     const { user } = context
+    const params = useParams()
+
 
     const getArticle = async () => {
         const response = await fetch(`http://localhost:8888/api/user/user/${user.id}`)
@@ -17,6 +20,18 @@ const CartPage = () => {
         setArticle(article.cart)
     }
 
+    const remove = () => {
+        const { user } = context
+        const id = params.id
+
+        fetch(`http://localhost:8888/api/user/removeCart/${user.id}`, {
+            method: "PUT",
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify({ id })
+        })
+    }
+
+
     const renderLIst = () => {
         return article.map((e, index) => {
             return (
@@ -24,10 +39,10 @@ const CartPage = () => {
                     <p>{e.name}</p>
                     <p>{e.description}</p>
                     <p>{e.price}</p>
-                    <button>Remove</button>
+                    <button onClick={() => remove()}>Remove</button>
                     <br></br>
                     <br></br>
-                </div>
+                </div >
             )
         })
     }
