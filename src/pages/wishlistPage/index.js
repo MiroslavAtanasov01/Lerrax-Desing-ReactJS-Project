@@ -17,6 +17,14 @@ const WishlistPage = () => {
         setArticle(article.wishlist)
     }
 
+    const remove = (id) => {
+        fetch(`http://localhost:8888/api/user/removeWishlist/${user.id}`, {
+            method: "PUT",
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify({ id })
+        })
+    }
+
     const renderLIst = () => {
         return article.map((e, index) => {
             return (
@@ -24,7 +32,7 @@ const WishlistPage = () => {
                     <p>{e.name}</p>
                     <p>{e.description}</p>
                     <p>{e.price}</p>
-                    <button>Remove</button>
+                    <button onClick={() => remove(e._id)}>Remove</button>
                     <br></br>
                     <br></br>
                 </div>
@@ -34,7 +42,7 @@ const WishlistPage = () => {
 
     useEffect(() => {
         getArticle()
-    }, [])
+    }, [article])
 
     if (article.length === 0) {
         return (

@@ -25,6 +25,21 @@ const CartPage = () => {
         })
     }
 
+    const buy = async () => {
+        article.map(e => {
+            const id = e._id
+            fetch(`http://localhost:8888/api/user/orders/${user.id}`, {
+                method: "PUT",
+                headers: { 'Content-type': 'application/json' },
+                body: JSON.stringify({ id })
+            })
+        })
+
+        fetch(`http://localhost:8888/api/user/removeAll/${user.id}`, {
+            method: "PUT",
+            headers: { 'Content-type': 'application/json' },
+        })
+    }
 
     const renderLIst = () => {
         return article.map((e, index) => {
@@ -44,12 +59,12 @@ const CartPage = () => {
     const total = () => {
         let total = 0
         article.map(e => total += e.price)
-        return total
+        return total.toFixed(2)
     }
 
     useEffect(() => {
         getArticle()
-    }, [])
+    }, [article])
 
     if (article.length === 0) {
         return (
@@ -70,7 +85,8 @@ const CartPage = () => {
                     <div>
                         <h3>Order Summary</h3>
                         <p>Total: US ${total()}</p>
-                        <button onClick>Buy</button>
+                        <button onClick={() => buy()}>Buy</button>
+
                     </div>
                 </div>
             </PageLayout>

@@ -25,6 +25,10 @@ router.put('/orders/:id', controllers.user.put.orders);
 
 router.put('/removeCart/:id', controllers.user.put.removeCart);
 
+router.put('/removeWishlist/:id', controllers.user.put.removeWishlist);
+
+router.put('/removeAll/:id', controllers.user.put.removeAll);
+
 router.delete('/:id', controllers.user.delete);
 
 module.exports = router;
