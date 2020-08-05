@@ -34,11 +34,11 @@ const DetailsPage = () => {
         getData()
     }, [getData])
 
-    const onClick = () => {
+    const onClick = (type) => {
         const { user } = context
         const id = params.id
 
-        fetch(`http://localhost:8888/api/user/${user.id}`, {
+        fetch(`http://localhost:8888/api/user/${type}/${user.id}`, {
             method: "PUT",
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({ id })
@@ -58,7 +58,8 @@ const DetailsPage = () => {
         <PageLayout>
             <div className={styles.container}>
                 <PageTitle title={`${name} | Lerrax Design`} />
-                <button onClick={() => onClick()}>Add to wishlist</button>
+                <button onClick={() => onClick("wishlist")}>Add to wishlist</button>
+                <button onClick={() => onClick("cart")}>Add to Cart</button>
                 <p>name: {name}</p>
                 <p>description: {description}</p>
                 <p>price: {price}</p>

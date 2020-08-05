@@ -12,7 +12,10 @@ module.exports = {
                 .catch((err) => res.status(500).send("Error"))
         },
         user: (req, res, next) => {
-            models.user.findById(req.params.id).populate('wishlist')
+            models.user.findById(req.params.id)
+                .populate('wishlist')
+                .populate('cart')
+                .populate('orders')
                 .then((user) => {
                     res.send(user)
                 })
@@ -89,15 +92,37 @@ module.exports = {
         }
     },
 
-    put: (req, res, next) => {
-        const id = req.params.id;
-        models.user.findByIdAndUpdate({ _id: id }, {
-            $addToSet: {
-                wishlist: [req.body.id],
-            },
-        })
-            .then((updatedUser) => res.send(updatedUser))
-            .catch(next)
+    put: {
+        wishlist: (req, res, next) => {
+            const id = req.params.id;
+            models.user.findByIdAndUpdate({ _id: id }, {
+                $addToSet: {
+                    wishlist: [req.body.id],
+                },
+            })
+                .then((updatedUser) => res.send(updatedUser))
+                .catch(next)
+        },
+        cart: (req, res, next) => {
+            const id = req.params.id;
+            models.user.findByIdAndUpdate({ _id: id }, {
+                $addToSet: {
+                    cart: [req.body.id],
+                },
+            })
+                .then((updatedUser) => res.send(updatedUser))
+                .catch(next)
+        },
+        orders: (req, res, next) => {
+            const id = req.params.id;
+            models.user.findByIdAndUpdate({ _id: id }, {
+                $addToSet: {
+                    orders: [req.body.id],
+                },
+            })
+                .then((updatedUser) => res.send(updatedUser))
+                .catch(next)
+        },
     },
 
     delete: (req, res, next) => {

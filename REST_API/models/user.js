@@ -16,7 +16,14 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Password is required!'],
     },
+    picture: {
+        type: String,
+    },
     wishlist: [{
+        type: 'ObjectId',
+        ref: 'Article'
+    }],
+    cart: [{
         type: 'ObjectId',
         ref: 'Article'
     }],

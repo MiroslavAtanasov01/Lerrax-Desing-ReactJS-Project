@@ -10,7 +10,8 @@ import ContactsPage from './pages/contacts'
 import ProfilePage from './pages/profile'
 import SofasPage from './pages/articles/Sofas'
 import DetailsArticle from './pages/detailsArticle'
-import wishlistPage from './pages/wishlistPage'
+import WishlistPage from './pages/wishlistPage'
+import CartPage from './pages/cartPage'
 
 const Navigation = () => {
     return (
@@ -24,7 +25,8 @@ const Navigation = () => {
                 <Route path="/contacts" component={ContactsPage} />
                 <Route path="/details/:id" component={DetailsArticle} />
                 <Route path="/sofas" component={SofasPage} />
-                <Route path="/wishlist" component={wishlistPage} />
+                <Route path="/wishlist" component={WishlistPage} />
+                <Route path="/cartPage" component={CartPage} />
                 <Route component={ErrorPage} />
             </Switch>
         </BrowserRouter>
