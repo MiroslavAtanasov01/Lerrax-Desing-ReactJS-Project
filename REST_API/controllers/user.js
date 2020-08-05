@@ -125,9 +125,9 @@ module.exports = {
         },
         removeCart: (req, res, next) => {
             const id = req.params.id;
-            models.user.findByIdAndUpdate({ _id: id }, {
+            models.user.update({ _id: id }, {
                 $pull: {
-                    cart: [req.body.id],
+                    cart: req.body.id,
                 },
             })
                 .then((updatedUser) => res.send(updatedUser))
