@@ -123,6 +123,16 @@ module.exports = {
                 .then((updatedUser) => res.send(updatedUser))
                 .catch(next)
         },
+        removeCart: (req, res, next) => {
+            const id = req.params.id;
+            models.user.findByIdAndUpdate({ _id: id }, {
+                $pull: {
+                    cart: [req.body.id],
+                },
+            })
+                .then((updatedUser) => res.send(updatedUser))
+                .catch(next)
+        },
     },
 
     delete: (req, res, next) => {

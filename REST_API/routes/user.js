@@ -23,6 +23,7 @@ router.put('/cart/:id', controllers.user.put.cart);
 
 router.put('/orders/:id', controllers.user.put.orders);
 
+router.put('/removeCart/:id', controllers.user.put.removeCart);
 
 router.delete('/:id', controllers.user.delete);
 
