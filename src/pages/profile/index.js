@@ -1,74 +1,62 @@
-import React, { Component } from 'react'
+import React, { useContext, useState, useEffect, useCallback } from 'react'
 import styles from './index.module.css'
+import { useParams, useHistory } from 'react-router-dom'
 import PageLayout from '../../components/page-layout'
 import PageTitle from '../../components/helmet'
-import UserContext from '../../Context'
 import Aside from '../../components/aside'
+import UserContext from '../../Context'
 
-class ProfilePage extends Component {
-    constructor(props) {
-        super(props)
+const ProfilePage = () => {
+    const [username, setUsername] = useState(null)
+    const [email, setEmail] = useState(null)
+    const context = useContext(UserContext)
+    const params = useParams()
+    const history = useHistory()
 
-        this.state = {
-            username: null,
-            email: '',
-        }
+    const logOut = () => {
+        context.logOut()
+        history.push('/')
     }
 
-    static contextType = UserContext
-
-    componentDidMount() {
-        console.log(this.props);
-        this.getUser(this.props.match.params.id)
-    }
-
-    getUser = async (id) => {
+    const getData = useCallback(async () => {
+        const id = params.id
         const response = await fetch(`http://localhost:8888/api/user?id=${id}`)
 
         if (!response.ok) {
-            this.props.history.push('/error')
+            history.push('/error')
+        } else {
+            const user = await response.json()
+            setUsername(user.username)
+            setEmail(user.email)
         }
+    }, [params.id, history])
 
-        const user = await response.json()
+    useEffect(() => {
+        getData()
+    }, [getData])
 
-
-        this.setState({
-            username: user.username,
-            email: user.email,
-        })
-    }
-
-    logOut = () => {
-        this.context.logOut()
-        this.props.history.push('/')
-    }
-
-    render() {
-        const { username, email } = this.state
-
-        if (!username) {
-            return (
-                <PageLayout>
-                    <div className={styles.container}>Loading....</div>
-                </PageLayout>
-            )
-        }
-
+    if (!username) {
         return (
             <PageLayout>
-                <div className={styles.container}>
-                    <PageTitle title={`${username} | Lerrax Design`} />
-                    <Aside />
-                    <div className={styles.div}>
-                        <h1 className={styles.h1}>My Account</h1>
-                        <p>Name: {username}</p>
-                        <p>E-mail: {email}</p>
-                        <button onClick={this.logOut}>Logout</button>
-                    </div>
-                </div>
-            </PageLayout >
+                <div>Loading....</div>
+            </PageLayout>
         )
     }
+
+    return (
+        <PageLayout>
+            <div className={styles.container}>
+                <PageTitle title={`${username} | Lerrax Design`} />
+                <Aside />
+                <div className={styles.div}>
+                    <h1 className={styles.h1}>My Account</h1>
+                    <p>Name: {username}</p>
+                    <p>E-mail: {email}</p>
+                    <button onClick={logOut}>Logout</button>
+                </div>
+            </div>
+        </PageLayout >
+    )
 }
 
-export default ProfilePage 
+export default ProfilePage
