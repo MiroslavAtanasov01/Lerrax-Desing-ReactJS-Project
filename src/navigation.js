@@ -33,7 +33,6 @@ const Navigation = () => {
                 <Route path="/profile/:id">
                     {loggedIn ? (<ProfilePage />) : (<Redirect to="/login" />)}
                 </Route>
-                {/* <Route path="/profile/:id" component={ProfilePage} /> */}
                 <Route path="/wishlist">
                     {loggedIn ? (<WishlistPage />) : (<Redirect to="/login" />)}
                 </Route>
