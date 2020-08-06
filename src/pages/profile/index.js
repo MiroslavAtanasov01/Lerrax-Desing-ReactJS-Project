@@ -12,14 +12,13 @@ class ProfilePage extends Component {
         this.state = {
             username: null,
             email: '',
-            orders: '',
-            wishList: ''
         }
     }
 
     static contextType = UserContext
 
     componentDidMount() {
+        console.log(this.props);
         this.getUser(this.props.match.params.id)
     }
 
