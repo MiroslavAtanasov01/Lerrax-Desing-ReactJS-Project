@@ -45,14 +45,14 @@ class Header extends Component {
                 <div className={styles.div1}>
                     <Link href="/sofas" type="header" title="Sofas" key="Sofas" > </Link>
                     <Link href="/chairs" type="header" title="Chairs" key="Chairs" > </Link>
-                    <Link href="#" type="header" title="Tables" key="Tables" > </Link>
-                    <Link href="#" type="header" title="Tabless" key="Tabless" > </Link>
-                    <Link href="#" type="header" title="Table" key="Table" > </Link>
-                    <Link href="#" type="header" title="Beddawdawdaws" key="Bed" > </Link>
-                    <Link href="#" type="header" title="Beddadws" key="Bedss" > </Link>
-                    <Link href="#" type="header" title="Beds" key="Beds" > </Link>
-                    <Link href="#" type="header" title="Sectionals" key="Sectionals" > </Link>
-                    <Link href="#" type="header" title="Leather Seating" key="Leather Seating" > </Link>
+                    <Link href="/beds" type="header" title="Beds" key="Beds" > </Link>
+                    <Link href="/tables" type="header" title="Tables" key="Tables" > </Link>
+                    <Link href="/sectionals" type="header" title="Sectionals" key="Sectionals" > </Link>
+                    <Link href="/benches" type="header" title="Benches" key="Benches" > </Link>
+                    <Link href="/nightstands" type="header" title="Nightstands" key="Nightstands" > </Link>
+                    <Link href="/wardrobes" type="header" title="Wardrobes" key="Wardrobes" > </Link>
+                    <Link href="/bookcases" type="header" title="Bookcases" key="Bookcases" > </Link>
+                    <Link href="/desks" type="header" title="Desks" key="Desks" > </Link>
                 </div>
             </header>
         )
