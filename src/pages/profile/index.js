@@ -5,6 +5,7 @@ import PageLayout from '../../components/page-layout'
 import PageTitle from '../../components/helmet'
 import Aside from '../../components/aside'
 import UserContext from '../../Context'
+import LoadingSpinner from '../../components/loading'
 
 const ProfilePage = () => {
     const [username, setUsername] = useState(null)
@@ -38,7 +39,7 @@ const ProfilePage = () => {
     if (!username) {
         return (
             <PageLayout>
-                <div>Loading....</div>
+                <LoadingSpinner />
             </PageLayout>
         )
     }

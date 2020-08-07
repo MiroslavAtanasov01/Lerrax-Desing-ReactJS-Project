@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import UserContext from './Context'
+import LoadingSpinner from './components/loading'
 
 function getCookie(name) {
     const cookieValue = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
@@ -62,7 +63,7 @@ class App extends Component {
         const { loggedIn, user } = this.state
 
         if (loggedIn === null) {
-            return (<div>Loading...</div>)
+            return <LoadingSpinner />
         }
 
         return (

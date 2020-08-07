@@ -4,6 +4,7 @@ import styles from './index.module.css'
 import PageLayout from '../../components/page-layout'
 import PageTitle from '../../components/helmet'
 import UserContext from '../../Context'
+import LoadingSpinner from '../../components/loading'
 
 
 const DetailsPage = () => {
@@ -66,7 +67,7 @@ const DetailsPage = () => {
     if (!name) {
         return (
             <PageLayout>
-                <div>Loading....</div>
+                <LoadingSpinner />
             </PageLayout>
         )
     }
