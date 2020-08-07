@@ -17,9 +17,9 @@ const Footer = () => {
             </div>
 
             <section className={styles.section}>
-                <FooterLink title="Company Address" name="Responsive Street 7" name2="London - United Kingdom" name3="Europe" />
-                <FooterLink title="E-mail" name="contact@sampledomain.com" name2="office@sampledomain.com" name3="office@sampledomain.com" />
-                <FooterLink title="Phone Numbers" name="0800 4521 800 50" name2="0450 5896 625 16" name3="0798 6546 465 15" />
+                <FooterLink title="Company Address" name="32 Iskar street" name2="Sofia - Bulgaria" name3="Europe" />
+                <FooterLink title="E-mail" name="info@lerrax-design.com" name2="Yana.Tsoneva@lerrax-design.com" name3="Miroslav.Atanasov@lerrax-design.com" />
+                <FooterLink title="Phone Numbers" name="+359 2427 5669" name2="+359 888 45 33 16" name3="+359 888 55 91 68" />
             </section>
             <p className={styles.copyRight}>Lerrax Design &copy; 2020</p>
         </footer>
