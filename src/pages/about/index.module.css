@@ -14,13 +14,17 @@
 }
 
 .h2 {
-          color: #ff8c00;
+          color: #016ea5;
 }
 
 .text {
           padding: 2em;
 }
 
-.p {
+.text p {
           padding: 0.5em;
+}
+
+.text p b {
+          color: #016ea5;
 }

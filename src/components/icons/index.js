@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 const Icons = ({ href, icon }) => {
     return (
         <a href={href} className={styles.social + ' ' + styles.twitter}>
-            <FontAwesomeIcon icon={icon} />
+            <FontAwesomeIcon icon={icon} size="2x" />
         </a>
     )
 }
