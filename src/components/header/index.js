@@ -15,7 +15,10 @@ class Header extends Component {
         return (
             <header className={styles.nav} >
                 <div className={styles.container}>
-                    <div className={styles.div2}></div>
+                    <div className={styles.div2}>
+                        <Link href="/about" type="tools" title="About us" key="about" > </Link>
+                        <Link href="/contacts" type="tools" title="Contact us" key="contacts" > </Link>
+                    </div>
                     <Link
                         key='Lerrax Design'
                         href='/'
