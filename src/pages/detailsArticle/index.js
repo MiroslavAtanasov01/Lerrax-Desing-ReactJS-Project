@@ -12,8 +12,10 @@ const DetailsPage = () => {
     const [description, setDescription] = useState(null)
     const [price, setPrice] = useState(null)
     const [imageUrl, setImageUrl] = useState(null)
+    const [hasItem, setHasItem] = useState(false)
     const params = useParams()
     const history = useHistory()
+    const loggedIn = context.loggedIn
 
     const getData = useCallback(async () => {
         const id = params.id
@@ -45,6 +47,21 @@ const DetailsPage = () => {
         })
     }
 
+    const changeBtn = async () => {
+        const { user } = context
+        const id = params.id
+
+        const res = await fetch(`http://localhost:8888/api/user/user/${user.id}`)
+        const data = await res.json()
+
+        data.wishlist.map(e => {
+            if (e._id === id) {
+                setHasItem(true)
+            }
+        })
+    }
+
+    changeBtn()
 
     if (!name) {
         return (
@@ -58,8 +75,8 @@ const DetailsPage = () => {
         <PageLayout>
             <div className={styles.container}>
                 <PageTitle title={`${name} | Lerrax Design`} />
-                <button onClick={() => onClick("wishlist")}>Add to wishlist</button>
-                <button onClick={() => onClick("cart")}>Add to Cart</button>
+                {loggedIn && (<button onClick={() => onClick("wishlist")}>{!hasItem ? "Add to wishlist" : "Already added to wishlist"}</button>)}
+                {loggedIn && (<button onClick={() => onClick("cart")}>{!hasItem ? "Add to Cart" : "Already added to cart"}</button>)}
                 <p>name: {name}</p>
                 <p>description: {description}</p>
                 <p>price: {price}</p>
