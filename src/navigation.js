@@ -52,7 +52,6 @@ const Navigation = () => {
                 <Route path="/about" component={AboutUsPage} />
                 <Route path="/contacts" component={ContactsPage} />
                 <Route path="/details/:id" component={DetailsArticle} />
-                <Route component={ErrorPage} />
 
                 <Route path="/sofas" component={SofasPage} />
                 <Route path="/chairs" component={ChairsPage} />
@@ -64,6 +63,8 @@ const Navigation = () => {
                 <Route path="/sectionals" component={SectionalsPage} />
                 <Route path="/tables" component={TablesPage} />
                 <Route path="/wardrobes" component={WardrobesPage} />
+
+                <Route component={ErrorPage} />
             </Switch>
         </BrowserRouter>
     )
