@@ -53,8 +53,8 @@ const ProfilePage = () => {
                 <PageTitle title={`${username} | Lerrax Design`} />
                 <Aside />
                 <div className={styles.div}>
-                    <img className={styles.profile} alt="Profile" src={picture ? picture : altImage}></img>
                     <h1 className={styles.h1}>My Account</h1>
+                    <img className={styles.profile} alt="Profile" src={picture ? picture : altImage}></img>
                     <p>Name: {username}</p>
                     <p>E-mail: {email}</p>
                     <button onClick={logOut}>Logout</button>
