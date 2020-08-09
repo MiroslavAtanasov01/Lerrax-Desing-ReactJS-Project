@@ -46,6 +46,15 @@ const DetailsPage = () => {
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({ id })
         })
+
+        if (type === 'wishlist') {
+            const userId = user.id
+            fetch(`http://localhost:8888/api/article/${id}`, {
+                method: "PUT",
+                headers: { 'Content-type': 'application/json' },
+                body: JSON.stringify({ userId })
+            })
+        }
     }
 
     const changeBtn = async () => {
@@ -62,7 +71,9 @@ const DetailsPage = () => {
         })
     }
 
-    changeBtn()
+    if (loggedIn) {
+        changeBtn()
+    }
 
     if (!name) {
         return (

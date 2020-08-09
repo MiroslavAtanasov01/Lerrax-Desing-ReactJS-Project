@@ -81,8 +81,7 @@ module.exports = {
                     }
 
                     const token = jwt.createToken({ id: user._id });
-                    // res.cookie(config.development.cookie, token).send(user);
-                    res.header('Authorization', token).send(user);
+                    res.cookie(config.development.cookie, token).header('Authorization', token).send(user);
                 })
                 .catch(next);
         },

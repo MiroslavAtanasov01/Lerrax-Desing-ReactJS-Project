@@ -3,7 +3,7 @@ const models = require('../models');
 module.exports = {
     get: {
         getAllArticles: (req, res, next) => {
-            models.article.find().sort('-created_at').limit(8).populate('creatorId')
+            models.article.find().sort('-likes').limit(8).populate('creatorId')
                 .then((articles) => res.send(articles))
                 .catch(next);
         },
@@ -83,8 +83,11 @@ module.exports = {
 
     put: (req, res, next) => {
         const id = req.params.id;
-        const { name, description, imageUrl } = req.body;
-        models.article.updateOne({ _id: id }, { name, description, imageUrl })
+        models.article.updateOne({ _id: id }, {
+            $addToSet: {
+                likes: [req.body.id],
+            },
+        })
             .then((updatedArticle) => res.send(updatedArticle))
             .catch(next)
     },

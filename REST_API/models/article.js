@@ -23,6 +23,10 @@ const ArticleSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    likes: [{
+        type: "ObjectId",
+        ref: 'User'
+    }],
     creatorId: {
         type: "ObjectId",
         required: true
