@@ -32,8 +32,8 @@ module.exports = {
 
     post: {
         register: (req, res, next) => {
-            const { email, username, password, rePassword } = req.body;
-            models.user.create({ email, username, password, rePassword })
+            const { email, username, password, rePassword, picture } = req.body;
+            models.user.create({ email, username, password, rePassword, picture })
                 .then((createdUser) => {
                     const token = jwt.createToken({ id: createdUser._id })
                     res.header('Authorization', token).send(createdUser)

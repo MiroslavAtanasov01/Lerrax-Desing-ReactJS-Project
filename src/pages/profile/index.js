@@ -6,10 +6,12 @@ import PageTitle from '../../components/helmet'
 import Aside from '../../components/aside'
 import UserContext from '../../Context'
 import LoadingSpinner from '../../components/loading'
+import altImage from "../../images/profile-picture-vector-600w-404138257.webp"
 
 const ProfilePage = () => {
     const [username, setUsername] = useState(null)
     const [email, setEmail] = useState(null)
+    const [picture, setPicture] = useState(null)
     const context = useContext(UserContext)
     const params = useParams()
     const history = useHistory()
@@ -29,6 +31,7 @@ const ProfilePage = () => {
             const user = await response.json()
             setUsername(user.username)
             setEmail(user.email)
+            setPicture(user.picture)
         }
     }, [params.id, history])
 
@@ -50,6 +53,7 @@ const ProfilePage = () => {
                 <PageTitle title={`${username} | Lerrax Design`} />
                 <Aside />
                 <div className={styles.div}>
+                    <img alt="Profile" src={picture ? picture : altImage}></img>
                     <h1 className={styles.h1}>My Account</h1>
                     <p>Name: {username}</p>
                     <p>E-mail: {email}</p>
