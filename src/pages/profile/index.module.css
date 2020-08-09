@@ -4,6 +4,10 @@
           margin: 0 auto;
 }
 
+.profile {
+          width: 120px;
+}
+
 .h1 {
           padding-top: 1em;
           padding-bottom: 1em;

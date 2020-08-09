@@ -10,6 +10,7 @@ router.get('/details/:id', controllers.article.get.getArticleDetails);
 
 router.get(`/sortH/:type`, controllers.article.get.getSortedByPriceHigh);
 router.get(`/sortL/:type`, controllers.article.get.getSortedByPriceLow);
+router.get(`/likes/:type`, controllers.article.get.getSortedByLikes);
 
 router.post('/', auth(), controllers.article.post);
 

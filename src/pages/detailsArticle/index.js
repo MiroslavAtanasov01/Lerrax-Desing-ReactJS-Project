@@ -13,7 +13,8 @@ const DetailsPage = () => {
     const [description, setDescription] = useState(null)
     const [price, setPrice] = useState(null)
     const [imageUrl, setImageUrl] = useState(null)
-    const [hasItem, setHasItem] = useState(false)
+    const [hasCart, setHasCart] = useState(false)
+    const [hasWishlist, setHasWishlist] = useState(false)
     const params = useParams()
     const history = useHistory()
     const loggedIn = context.loggedIn
@@ -47,14 +48,15 @@ const DetailsPage = () => {
             body: JSON.stringify({ id })
         })
 
-        if (type === 'wishlist') {
-            const userId = user.id
-            fetch(`http://localhost:8888/api/article/${id}`, {
-                method: "PUT",
-                headers: { 'Content-type': 'application/json' },
-                body: JSON.stringify({ userId })
-            })
-        }
+        // ADD TO LIKES
+        // if (type === 'wishlist') {
+        //     const userId = user.id
+        //     fetch(`http://localhost:8888/api/article/${id}`, {
+        //         method: "PUT",
+        //         headers: { 'Content-type': 'application/json' },
+        //         body: JSON.stringify({ userId })
+        //     })
+        // }
     }
 
     const changeBtn = async () => {
@@ -64,16 +66,32 @@ const DetailsPage = () => {
         const res = await fetch(`http://localhost:8888/api/user/user/${user.id}`)
         const data = await res.json()
 
-        data.wishlist.map(e => {
+        data.wishlist.forEach(e => {
             if (e._id === id) {
-                setHasItem(true)
+                setHasWishlist(true)
+            }
+        })
+    }
+
+    const changeBtnA = async () => {
+        const { user } = context
+        const id = params.id
+
+        const res = await fetch(`http://localhost:8888/api/user/user/${user.id}`)
+        const data = await res.json()
+
+        data.cart.forEach(e => {
+            if (e._id === id) {
+                setHasCart(true)
             }
         })
     }
 
     if (loggedIn) {
         changeBtn()
+        changeBtnA()
     }
+
 
     if (!name) {
         return (
@@ -87,8 +105,8 @@ const DetailsPage = () => {
         <PageLayout>
             <div className={styles.container}>
                 <PageTitle title={`${name} | Lerrax Design`} />
-                {loggedIn && (<button onClick={() => onClick("wishlist")}>{!hasItem ? "Add to wishlist" : "Already added to wishlist"}</button>)}
-                {loggedIn && (<button onClick={() => onClick("cart")}>{!hasItem ? "Add to Cart" : "Already added to cart"}</button>)}
+                {loggedIn && (<button onClick={() => onClick("wishlist")}>{!hasWishlist ? "Add to wishlist" : "Already added to wishlist"}</button>)}
+                {loggedIn && (<button onClick={() => onClick("cart")}>{!hasCart ? "Add to Cart" : "Already added to cart"}</button>)}
                 <p>name: {name}</p>
                 <p>description: {description}</p>
                 <p>price: {price}</p>

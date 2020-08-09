@@ -27,6 +27,11 @@ module.exports = {
                 .then((articles) => res.send(articles))
                 .catch(next);
         },
+        getSortedByLikes: (req, res, next) => {
+            models.article.find({ category: req.params.type }).sort({ likes: -1 })
+                .then((articles) => res.send(articles))
+                .catch(next);
+        },
     },
 
     post: (req, res, next) => {
@@ -48,7 +53,7 @@ module.exports = {
 
     put: (req, res, next) => {
         const id = req.params.id;
-        models.article.updateOne({ _id: id }, {
+        models.article.findByIdAndUpdate({ _id: id }, {
             $addToSet: {
                 likes: [req.body.id],
             },

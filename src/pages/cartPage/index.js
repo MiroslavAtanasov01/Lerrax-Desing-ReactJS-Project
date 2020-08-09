@@ -26,7 +26,7 @@ const CartPage = () => {
     }
 
     const buy = async () => {
-        article.map(e => {
+        article.for(e => {
             const id = e._id
             fetch(`http://localhost:8888/api/user/orders/${user.id}`, {
                 method: "PUT",

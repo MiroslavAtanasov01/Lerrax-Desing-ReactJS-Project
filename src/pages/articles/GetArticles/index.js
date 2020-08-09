@@ -10,7 +10,7 @@ const Articles = ({ title, type }) => {
     const [articles, setArticles] = useState([])
 
     const OnClick = async (value) => {
-        const promise = await fetch(`http://localhost:8888/api/article/${value}}/${type}`)
+        const promise = await fetch(`http://localhost:8888/api/article/${value}/${type}`)
         const articles = await promise.json()
         setArticles(articles)
     }
@@ -42,6 +42,7 @@ const Articles = ({ title, type }) => {
                 <Aside />
                 <div><button onClick={() => OnClick("sortH")}>Price: High to Low</button></div>
                 <div><button onClick={() => OnClick("sortL")}>Price: Low to High</button></div>
+                <div><button onClick={() => OnClick("likes")}>Rating</button></div>
                 <div className={styles.main}>
                     {renderArticle()}
                 </div>
