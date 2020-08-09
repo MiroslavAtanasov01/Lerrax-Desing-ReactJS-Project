@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext, useCallback } from 'react'
 import styles from './index.module.css'
 import PageLayout from '../../components/page-layout'
 import PageTitle from '../../components/helmet'
@@ -10,12 +10,12 @@ const CartPage = () => {
     const [article, setArticle] = useState([])
     const { user } = context
 
-    const getArticle = async () => {
+    const getArticle = useCallback(async () => {
         const response = await fetch(`http://localhost:8888/api/user/user/${user.id}`)
         const article = await response.json()
 
         setArticle(article.cart)
-    }
+    }, [user.id])
 
     const remove = (id) => {
         fetch(`http://localhost:8888/api/user/removeCart/${user.id}`, {
@@ -44,11 +44,11 @@ const CartPage = () => {
     const renderLIst = () => {
         return article.map((e, index) => {
             return (
-                <div key={e._id} index={index}>
+                <div key={e._id} index={index} className={styles.div}>
+                    <img className={styles.img} alt="article" src={e.imageUrl}></img>
                     <p>{e.name}</p>
-                    <p>{e.description}</p>
-                    <p>{e.price}</p>
-                    <button onClick={() => remove(e._id)}>Remove</button>
+                    <p>Price: BGN {e.price}</p>
+                    <button className={styles.button} onClick={() => remove(e._id)}>Remove</button>
                     <br></br>
                     <br></br>
                 </div >
@@ -64,7 +64,7 @@ const CartPage = () => {
 
     useEffect(() => {
         getArticle()
-    }, [article])
+    }, [article, getArticle])
 
     if (article.length === 0) {
         return (
@@ -80,14 +80,15 @@ const CartPage = () => {
                 <div className={styles.container}>
                     <PageTitle title="Shopping cart | Lerrax Design" />
                     <div className={styles.main}>
+                        <h2 className={styles.default}>Shopping cart</h2>
                         {renderLIst()}
+                        <div className={styles.div1}>
+                            <h3>Order Summary</h3>
+                            <p>Total: BGN {total()}</p>
+                            <button className={styles.buy} onClick={() => buy()}>BUY</button>
+                        </div>
                     </div>
-                    <div>
-                        <h3>Order Summary</h3>
-                        <p>Total: US ${total()}</p>
-                        <button onClick={() => buy()}>Buy</button>
 
-                    </div>
                 </div>
             </PageLayout>
         </div>
