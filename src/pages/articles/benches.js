@@ -3,7 +3,7 @@ import GetArticles from './GetArticles'
 
 const Benches = () => {
     return (
-        <GetArticles type="benches" title="Benches" />
+        <GetArticles type="Benches" title="Benches" />
     )
 }
 

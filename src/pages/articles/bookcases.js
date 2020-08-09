@@ -3,7 +3,7 @@ import GetArticles from './GetArticles'
 
 const Bookcases = () => {
     return (
-        <GetArticles type="bookcases" title="Bookcases" />
+        <GetArticles type="Bookcases" title="Bookcases" />
     )
 }
 

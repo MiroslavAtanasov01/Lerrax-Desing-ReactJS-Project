@@ -3,7 +3,6 @@ import styles from './index.module.css'
 import mainImg from '../../images/Feb-20-marquees1 placeholdr.jpg'
 import sectionImage from '../../images/03232020-gnp-rugs-694x447_editorial2.jpg'
 import sectionImage2 from '../../images/03232020-gnp-rugs-694x447_editorial1.jpg'
-import delivery from '../../images/Marketing-Module.jpg'
 import Article from '../article'
 
 class Main extends Component {
