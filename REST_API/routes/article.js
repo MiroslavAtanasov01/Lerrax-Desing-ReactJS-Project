@@ -4,18 +4,12 @@ const auth = require('../utils/auth')
 
 router.get('/', controllers.article.get.getAllArticles);
 
+router.get('/:type', controllers.article.get.getArticle);
+
 router.get('/details/:id', controllers.article.get.getArticleDetails);
 
-router.get('/sofas', controllers.article.get.getSofas);
-router.get('/chairs', controllers.article.get.getChairs);
-router.get('/beds', controllers.article.get.getBeds);
-router.get('/tables', controllers.article.get.getTables);
-router.get('/sectionals', controllers.article.get.getSectionals);
-router.get('/benches', controllers.article.get.getBenches);
-router.get('/nightstands', controllers.article.get.getNightstands);
-router.get('/wardrobes', controllers.article.get.getWardrobes);
-router.get('/bookcases', controllers.article.get.getBookcases);
-router.get('/desks', controllers.article.get.getDesks);
+router.get(`/sortH/:type`, controllers.article.get.getSortedByPriceHigh);
+router.get(`/sortL/:type`, controllers.article.get.getSortedByPriceLow);
 
 router.post('/', auth(), controllers.article.post);
 

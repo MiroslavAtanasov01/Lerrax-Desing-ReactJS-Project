@@ -3,7 +3,7 @@ import GetArticles from './GetArticles'
 
 const Sectionals = () => {
     return (
-        <GetArticles type="sectionals" title="Sectionals" />
+        <GetArticles type="Sectionals" title="Sectionals" />
     )
 }
 
