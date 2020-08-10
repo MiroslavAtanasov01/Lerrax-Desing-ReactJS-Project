@@ -1,0 +1,32 @@
+.container {
+          padding-top: 1em;
+          transition: 2s ease;
+}
+
+.mainImg {
+          cursor: pointer;
+          width: 100%;
+          margin: 0 auto;
+          max-width: 100%;
+          height: auto;
+}
+
+.container1 {
+          text-align: center;
+          padding-top: 0.5em;
+}
+
+.dot {
+          cursor: pointer;
+          height: 15px;
+          width: 15px;
+          margin: 0 5px;
+          background-color: #bbb;
+          border-radius: 50%;
+          display: inline-block;
+          transition: background-color 0.6s ease;
+}
+
+.dot:hover {
+          background-color: #717171;
+}
