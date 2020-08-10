@@ -1,5 +1,5 @@
 .container {
-          width: 90em;
+          width: 70em;
           margin: 0 auto;
 }
 
@@ -10,14 +10,20 @@
           height: auto;
           display: inline-block;
           background-color: #eeeeee;
+          height: 100%;
 }
 
 .default {
-          margin: 0.5em 0 0 0.5em;
+          margin: 1% 0 0.5% 0.4%;
+          display: inline-block;
+          margin-left: 0.7em;
+          padding: 0.5em 0 0.7em 0.5em;
+          background-color: white;
+          width: 60%;
 }
 
 .div {
-          margin: 2em 2em 2em 2em;
+          margin: 0.5% 0.4%;
           display: inline-block;
           margin-left: 1em;
           background-color: white;
@@ -27,13 +33,14 @@
 .div1 {
           display: inline-block;
           width: 20%;
-          height: 20vh;
           background-color: white;
           text-align: center;
           margin: 0 auto;
-          justify-content: center;
           margin: 1em;
-          padding: 0.5em;
+          padding: 2em;
+          position: absolute;
+          top: 6.7em;
+          right: 15em;
 }
 
 .button {
@@ -54,6 +61,7 @@
           height: 4vh;
           font-size: 18px;
           color: white;
+          cursor: pointer;
 }
 
 .img {

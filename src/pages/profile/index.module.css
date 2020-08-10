@@ -23,16 +23,3 @@
           height: auto;
           display: inline-block;
 }
-
-.div2 {
-          padding-top: 3em;
-          width: 30%;
-          margin: 0 auto;
-}
-
-.ul {
-          list-style-type: none;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-}

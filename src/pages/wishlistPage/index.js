@@ -37,7 +37,7 @@ const WishlistPage = () => {
                             <p className={styles.price}>Price: BGN {e.price}</p>
                         </div>
                         <div className={styles.div2}>
-                            <p>Added: {(e.created_at).substring(0, 10)}</p>
+                            <p>Added: {e.created_at ? (e.created_at).substring(0, 10) : null}</p>
                             <button onClick={() => remove(e._id)}>Remove</button>
                         </div>
                     </div>
@@ -53,7 +53,7 @@ const WishlistPage = () => {
     if (article.length === 0) {
         return (
             <PageLayout>
-                <Aside />
+                {/* <Aside /> */}
                 <div className={styles.empty}>Your wishlist is empty </div>
             </PageLayout>
         )
@@ -63,7 +63,7 @@ const WishlistPage = () => {
         <PageLayout>
             <div className={styles.container}>
                 <PageTitle title="Wishlist | Lerrax Design" />
-                <Aside />
+                {/* <Aside /> */}
                 <div className={styles.main}>
                     <p className={styles.default}>Default Wish List</p>
                     {renderLIst()}
