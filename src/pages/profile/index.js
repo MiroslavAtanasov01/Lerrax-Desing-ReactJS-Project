@@ -22,6 +22,10 @@ const ProfilePage = () => {
         history.push('/')
     }
 
+    const ordersPage = () => {
+        history.push(`/ordersPage`)
+    }
+
     const getData = useCallback(async () => {
         const id = params.id
         const response = await fetch(`http://localhost:8888/api/user?id=${id}`)
@@ -65,7 +69,7 @@ const ProfilePage = () => {
                             <p>E-mail: {email}</p>
                         </div>
                         <div className={styles.div3}>
-                            <button>Orders:{orders}</button>
+                            <button onClick={ordersPage}>Orders:{orders}</button>
                             <button onClick={logOut}>Logout</button>
                         </div>
                     </div>
