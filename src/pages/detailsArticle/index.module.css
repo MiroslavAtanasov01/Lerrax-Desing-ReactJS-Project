@@ -1,2 +1,51 @@
 .container {
+          max-width: 64em;
+          margin: 0 auto;
+}
+
+.div {
+          width: 100%;
+          padding: 1em 0 0.5em 0;
+          font-size: 22px;
+}
+
+.buttons {
+          display: inline-block;
+          width: 100%;
+          text-align: right;
+          padding-bottom: 1.5em;
+}
+
+.buttons button {
+          background-color: black;
+          border: none;
+          color: white;
+          margin-left: 1em;
+          cursor: pointer;
+          padding: 0.7em;
+}
+
+.buttons button:hover {
+          color: rgb(214, 212, 212);
+}
+
+.p {
+          font-size: 14px;
+}
+
+.div p {
+          width: 49%;
+          display: inline-block;
+          text-align: left;
+}
+
+.div span {
+          display: inline-block;
+          width: 51%;
+          text-align: right;
+}
+
+.image {
+          width: 100%;
+          height: auto;
 }

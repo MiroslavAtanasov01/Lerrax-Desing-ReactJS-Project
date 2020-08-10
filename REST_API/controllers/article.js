@@ -3,7 +3,7 @@ const models = require('../models');
 module.exports = {
     get: {
         getAllArticles: (req, res, next) => {
-            models.article.find().sort({ likes: -1 }).limit(8).populate('creatorId')
+            models.article.find().sort({ likes: -1 }).limit(9).populate('creatorId')
                 .then((articles) => res.send(articles))
                 .catch(next);
         },

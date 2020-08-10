@@ -41,6 +41,13 @@ const CartPage = () => {
         })
     }
 
+    const total = () => {
+        let total = 0
+        article.map(e => total += e.price)
+        return total.toFixed(2)
+    }
+
+
     const renderLIst = () => {
         return article.map((e, index) => {
             return (
@@ -49,18 +56,11 @@ const CartPage = () => {
                     <p>{e.name}</p>
                     <p>Price: BGN {e.price}</p>
                     <button className={styles.button} onClick={() => remove(e._id)}>Remove</button>
-                    <br></br>
-                    <br></br>
                 </div >
             )
         })
     }
 
-    const total = () => {
-        let total = 0
-        article.map(e => total += e.price)
-        return total.toFixed(2)
-    }
 
     useEffect(() => {
         getArticle()
@@ -80,7 +80,7 @@ const CartPage = () => {
                 <div className={styles.container}>
                     <PageTitle title="Shopping cart | Lerrax Design" />
                     <div className={styles.main}>
-                        <h2 className={styles.default}>Shopping cart</h2>
+                        <h2 className={styles.default}>Shopping cart ({article.length})</h2>
                         {renderLIst()}
                         <div className={styles.div1}>
                             <h3>Order Summary</h3>
@@ -88,7 +88,6 @@ const CartPage = () => {
                             <button className={styles.buy} onClick={() => buy()}>BUY</button>
                         </div>
                     </div>
-
                 </div>
             </PageLayout>
         </div>

@@ -105,12 +105,18 @@ const DetailsPage = () => {
         <PageLayout>
             <div className={styles.container}>
                 <PageTitle title={`${name} | Lerrax Design`} />
-                {loggedIn && (<button onClick={() => onClick("wishlist")}>{!hasWishlist ? "Add to wishlist" : "Already added to wishlist"}</button>)}
-                {loggedIn && (<button onClick={() => onClick("cart")}>{!hasCart ? "Add to Cart" : "Already added to cart"}</button>)}
-                <p>name: {name}</p>
-                <p>description: {description}</p>
-                <p>price: {price}</p>
-                <img alt="images" src={imageUrl}></img>
+                <div className={styles.div}>
+                    <p>{name}</p>
+                    <span>BGN {price}</span>
+                </div>
+                <p className={styles.p}><strong>International Customers:</strong> </p>
+                <p>To order this item, please call (00+1) 630-369-4464, or fax (00+1) 630-527-1448. </p>
+                <div className={styles.buttons}>
+                    {loggedIn && (<button onClick={() => onClick("wishlist")}>{!hasWishlist ? "ADD TO WISHLIST" : "ALREADY ADDED TO WISHLIST"}</button>)}
+                    {loggedIn && (<button onClick={() => onClick("cart")}>{!hasCart ? "ADD TO CART" : "AlREADY ADDED TO CART"}</button>)}
+                </div>
+                <img className={styles.image} alt="images" src={imageUrl}></img>
+                <p>{description}</p>
             </div>
         </PageLayout>
     )

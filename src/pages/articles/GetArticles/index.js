@@ -40,10 +40,14 @@ const Articles = ({ title, type }) => {
             <div className={styles.container}>
                 <PageTitle title={`${title} | Lerrax Design`} />
                 <Aside />
-                <div><button onClick={() => OnClick("sortH")}>Price: High to Low</button></div>
-                <div><button onClick={() => OnClick("sortL")}>Price: Low to High</button></div>
-                <div><button onClick={() => OnClick("likes")}>Rating</button></div>
                 <div className={styles.main}>
+                    <div className={styles.div}>
+                        <p>{type}</p>
+                        <span><strong>Sort by: </strong></span>
+                        <button onClick={() => OnClick("sortH")}>Price: High to Low</button>
+                        <button onClick={() => OnClick("sortL")}>Price: Low to High</button>
+                        <button onClick={() => OnClick("likes")}>Rating</button>
+                    </div>
                     {renderArticle()}
                 </div>
             </div>

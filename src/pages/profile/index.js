@@ -11,6 +11,7 @@ import altImage from "../../images/profile-picture-vector-600w-404138257.webp"
 const ProfilePage = () => {
     const [username, setUsername] = useState(null)
     const [email, setEmail] = useState(null)
+    const [orders, setOrders] = useState(null)
     const [picture, setPicture] = useState(null)
     const context = useContext(UserContext)
     const params = useParams()
@@ -31,6 +32,7 @@ const ProfilePage = () => {
             const user = await response.json()
             setUsername(user.username)
             setEmail(user.email)
+            setOrders(user.orders.length)
             setPicture(user.picture)
         }
     }, [params.id, history])
@@ -57,6 +59,7 @@ const ProfilePage = () => {
                     <img className={styles.profile} alt="Profile" src={picture ? picture : altImage}></img>
                     <p>Name: {username}</p>
                     <p>E-mail: {email}</p>
+                    <p>orders: {orders}</p>
                     <button onClick={logOut}>Logout</button>
                 </div>
             </div>
