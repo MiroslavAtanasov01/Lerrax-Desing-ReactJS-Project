@@ -1,15 +1,16 @@
 import React, { useState, useEffect, useContext, useCallback } from 'react'
+import { useHistory } from 'react-router-dom'
 import styles from './index.module.css'
 import PageLayout from '../../components/page-layout'
 import PageTitle from '../../components/helmet'
 import UserContext from '../../Context'
-import Aside from '../../components/aside'
 
 
 const WishlistPage = () => {
     const context = useContext(UserContext)
     const [article, setArticle] = useState([])
     const { user } = context
+    const history = useHistory()
 
     const getArticle = useCallback(async () => {
         const response = await fetch(`http://localhost:8888/api/user/user/${user.id}`)
@@ -28,15 +29,20 @@ const WishlistPage = () => {
 
     const renderLIst = () => {
         return article.map((e, index) => {
+            const imageClick = () => {
+                history.push(`/details/${e._id}`)
+            }
             return (
                 <div key={e._id} index={index} className={styles.div}>
                     <div className={styles.inner}>
-                        <img alt="article" src={e.imageUrl}></img>
                         <div className={styles.div1}>
+                            <img alt="article" src={e.imageUrl} onClick={() => imageClick()}></img>
+                        </div>
+                        <div className={styles.div2}>
                             <h3>{e.name}</h3>
                             <p className={styles.price}>Price: BGN {e.price}</p>
                         </div>
-                        <div className={styles.div2}>
+                        <div className={styles.div3}>
                             <p>Added: {e.created_at ? (e.created_at).substring(0, 10) : null}</p>
                             <button onClick={() => remove(e._id)}>Remove</button>
                         </div>
@@ -53,7 +59,6 @@ const WishlistPage = () => {
     if (article.length === 0) {
         return (
             <PageLayout>
-                {/* <Aside /> */}
                 <div className={styles.empty}>Your wishlist is empty </div>
             </PageLayout>
         )
@@ -63,7 +68,6 @@ const WishlistPage = () => {
         <PageLayout>
             <div className={styles.container}>
                 <PageTitle title="Wishlist | Lerrax Design" />
-                {/* <Aside /> */}
                 <div className={styles.main}>
                     <p className={styles.default}>Default Wish List</p>
                     {renderLIst()}

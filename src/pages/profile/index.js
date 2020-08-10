@@ -11,7 +11,7 @@ import altImage from "../../images/profile-picture-vector-600w-404138257.webp"
 const ProfilePage = () => {
     const [username, setUsername] = useState(null)
     const [email, setEmail] = useState(null)
-    const [orders, setOrders] = useState(null)
+    const [orders, setOrders] = useState([])
     const [picture, setPicture] = useState(null)
     const context = useContext(UserContext)
     const params = useParams()
@@ -56,11 +56,19 @@ const ProfilePage = () => {
                 <Aside />
                 <div className={styles.div}>
                     <h1 className={styles.h1}>My Account</h1>
-                    <img className={styles.profile} alt="Profile" src={picture ? picture : altImage}></img>
-                    <p>Name: {username}</p>
-                    <p>E-mail: {email}</p>
-                    <p>orders: {orders}</p>
-                    <button onClick={logOut}>Logout</button>
+                    <div className={styles.main}>
+                        <div className={styles.div1}>
+                            <img className={styles.profile} alt="Profile" src={picture ? picture : altImage}></img>
+                        </div>
+                        <div className={styles.div2}>
+                            <p>Name: {username}</p>
+                            <p>E-mail: {email}</p>
+                        </div>
+                        <div className={styles.div3}>
+                            <button>Orders:{orders}</button>
+                            <button onClick={logOut}>Logout</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </PageLayout >

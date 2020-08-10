@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext, useCallback } from 'react'
+import { useHistory } from 'react-router-dom'
 import styles from './index.module.css'
 import PageLayout from '../../components/page-layout'
 import PageTitle from '../../components/helmet'
@@ -9,6 +10,8 @@ const CartPage = () => {
     const context = useContext(UserContext)
     const [article, setArticle] = useState([])
     const { user } = context
+    const history = useHistory()
+
 
     const getArticle = useCallback(async () => {
         const response = await fetch(`http://localhost:8888/api/user/user/${user.id}`)
@@ -50,12 +53,21 @@ const CartPage = () => {
 
     const renderLIst = () => {
         return article.map((e, index) => {
+            const imageClick = () => {
+                history.push(`/details/${e._id}`)
+            }
             return (
                 <div key={e._id} index={index} className={styles.div}>
-                    <img className={styles.img} alt="article" src={e.imageUrl}></img>
-                    <p>{e.name}</p>
-                    <p>Price: BGN {e.price}</p>
-                    <button className={styles.button} onClick={() => remove(e._id)}>Remove</button>
+                    <div className={styles.div1}>
+                        <img className={styles.img} alt="article" src={e.imageUrl} onClick={() => imageClick()}></img>
+                    </div>
+                    <div className={styles.div2}>
+                        <h3>{e.name}</h3>
+                        <p>Price: BGN {e.price}</p>
+                    </div>
+                    <div className={styles.div3}>
+                        <button className={styles.button} onClick={() => remove(e._id)}>Remove</button>
+                    </div>
                 </div >
             )
         })
@@ -82,10 +94,10 @@ const CartPage = () => {
                     <div className={styles.main}>
                         <h2 className={styles.default}>Shopping cart ({article.length})</h2>
                         {renderLIst()}
-                        <div className={styles.div1}>
-                            <h3>Order Summary</h3>
+                        <div className={styles.div4}>
+                            <h2>Order Summary</h2>
                             <p>Total: BGN {total()}</p>
-                            <button className={styles.buy} onClick={() => buy()}>BUY</button>
+                            <button className={styles.buy} onClick={() => buy()}>BUY({article.length})</button>
                         </div>
                     </div>
                 </div>

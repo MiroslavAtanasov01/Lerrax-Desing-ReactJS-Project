@@ -19,7 +19,7 @@
           margin-left: 0.7em;
           padding: 0.5em 0 0.7em 0.5em;
           background-color: white;
-          width: 60%;
+          width: 70%;
 }
 
 .div {
@@ -27,20 +27,41 @@
           display: inline-block;
           margin-left: 1em;
           background-color: white;
-          width: 60%;
+          width: 70%;
+}
+
+.div div {
+          display: inline-block;
+          padding: 3em 2em 3em 2em;
 }
 
 .div1 {
-          display: inline-block;
           width: 20%;
+}
+.div2 {
+          width: 59%;
+          vertical-align: top;
+}
+.div3 {
+          width: 20%;
+          text-align: right;
+          vertical-align: top;
+}
+
+.div4 {
+          display: inline-block;
+          width: 18%;
           background-color: white;
           text-align: center;
           margin: 0 auto;
           margin: 1em;
-          padding: 2em;
+          padding: 1em;
           position: absolute;
-          top: 6.7em;
-          right: 15em;
+          top: 6.5em;
+}
+
+.div4 h2 {
+          padding-bottom: 1em;
 }
 
 .button {
@@ -58,14 +79,17 @@
           background-color: red;
           border: none;
           width: 70%;
-          height: 4vh;
+          height: 5vh;
           font-size: 18px;
           color: white;
           cursor: pointer;
+          margin-top: 1em;
 }
 
 .img {
           width: 150px;
+          height: auto;
+          cursor: pointer;
 }
 
 .empty {
@@ -73,7 +97,7 @@
           text-align: center;
           margin: 0 auto;
           max-width: 100%;
-          height: auto;
+          height: 60vh;
           display: inline-block;
           font-size: 24px;
           margin-top: 1em;
