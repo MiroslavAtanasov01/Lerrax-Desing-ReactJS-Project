@@ -21,7 +21,6 @@ const Main = () => {
         history.push(`/${type}`)
     }
 
-
     const renderArticles = () => {
         return articles.map(article => {
             return (
@@ -30,11 +29,9 @@ const Main = () => {
         })
     }
 
-
     useEffect(() => {
         getArticles()
     }, [])
-
 
     return (
         <div className={styles.container}>
@@ -44,8 +41,8 @@ const Main = () => {
                 {renderArticles()}
             </div>
             <section className={styles.section}>
-                <div className={styles.section1}>
-                    <img alt='sectionImage2' className={styles.sectionImage} src={sectionImage2}></img>
+                <div className={styles.sectionImage}>
+                    <img alt='sectionImage2' className={styles.image} src={sectionImage2}></img>
                 </div>
                 <div className={styles.section2}>
                     <h1>Find Your Perfect Table Size</h1>
@@ -62,8 +59,8 @@ const Main = () => {
                             You're sure to find a sturdy all-weather bench that blends seamlessly with your patio's decor.</p>
                     <button className={styles.button} onClick={() => onClick('benches')}>Read More</button>
                 </div>
-                <div className={styles.section1}>
-                    <img alt='sectionImage' className={styles.sectionImage} src={sectionImage}></img>
+                <div className={styles.sectionImage}>
+                    <img alt='sectionImage' className={styles.image} src={sectionImage}></img>
                 </div>
             </section>
         </div>

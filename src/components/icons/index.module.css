@@ -1,14 +1,11 @@
-a.social {
+.social {
           margin: 0 1rem;
           transition: transform 250ms;
           display: inline-block;
+          color: rgb(219, 219, 219);
 }
 
-a.social:hover {
+.social:hover {
           transform: translateY(-2px);
           color: #eee;
-}
-
-a.twitter {
-          color: rgb(219, 219, 219);
 }

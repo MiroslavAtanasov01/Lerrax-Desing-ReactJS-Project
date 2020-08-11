@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { useContext } from 'react'
+import UserContext from './Context'
 
 import Products from './pages/products'
 import RegisterPage from './pages/register'
@@ -13,7 +14,6 @@ import DetailsArticle from './pages/detailsArticle'
 import WishlistPage from './pages/wishlistPage'
 import CartPage from './pages/cartPage'
 import OrdersPage from './pages/ordersPage'
-import UserContext from './Context'
 
 import SofasPage from './pages/articles/sofas'
 import ChairsPage from './pages/articles/chairs'

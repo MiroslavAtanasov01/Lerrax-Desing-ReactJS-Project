@@ -15,17 +15,12 @@ class Header extends Component {
         return (
             <header className={styles.nav} >
                 <div className={styles.container}>
-                    <div className={styles.div2}>
+                    <div>
                         <Link href="/about" type="tools" title="About us" key="about" > </Link>
                         <Link href="/contacts" type="tools" title="Contact us" key="contacts" > </Link>
                     </div>
-                    <Link
-                        key='Lerrax Design'
-                        href='/'
-                        title='Lerrax Design'
-                        type="logo"
-                    />
-                    <div className={styles.div}>
+                    <Link key='Lerrax Design' href='/' title='Lerrax Design' type="logo" />
+                    <div>
                         {
                             links.map(navElement => {
                                 return (
@@ -38,11 +33,9 @@ class Header extends Component {
                                 )
                             })
                         }
-                        {/* <input className={styles.search} type="text" placeholder="Search" /> */}
-
                     </div>
                 </div>
-                <div className={styles.div1}>
+                <div className={styles.div}>
                     <Link href="/sofas" type="header" title="Sofas" key="Sofas" > </Link>
                     <Link href="/chairs" type="header" title="Chairs" key="Chairs" > </Link>
                     <Link href="/beds" type="header" title="Beds" key="Beds" > </Link>

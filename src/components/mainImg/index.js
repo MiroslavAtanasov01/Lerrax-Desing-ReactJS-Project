@@ -5,6 +5,8 @@ import mainImg1 from '../../images/Feb-20-marquees3.jpg'
 import mainImg2 from '../../images/Feb-20-marquees4.jpg'
 import mainImg3 from '../../images/Feb-20-marquees5.jpg'
 import { withRouter } from "react-router-dom";
+import Dots from '../dots'
+
 
 class MainImg extends Component {
     constructor(props) {
@@ -56,11 +58,11 @@ class MainImg extends Component {
         return (
             <div className={styles.container}>
                 <img alt='mainImage' className={styles.mainImg} src={images[currentImg]} onClick={() => this.onClick(types[currentImg])} ></img>
-                <div className={styles.container1}>
-                    <span className={styles.dot} onClick={() => this.onClickDot(0)}></span>
-                    <span className={styles.dot} onClick={() => this.onClickDot(1)}></span>
-                    <span className={styles.dot} onClick={() => this.onClickDot(2)}></span>
-                    <span className={styles.dot} onClick={() => this.onClickDot(3)}></span>
+                <div className={styles['inner-container']}>
+                    <Dots onClick={() => this.onClickDot(0)} />
+                    <Dots onClick={() => this.onClickDot(1)} />
+                    <Dots onClick={() => this.onClickDot(2)} />
+                    <Dots onClick={() => this.onClickDot(3)} />
                 </div>
             </div>
         )

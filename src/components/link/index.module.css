@@ -33,7 +33,6 @@
 }
 
 .logo-link {
-          /* padding-left: 15em; */
           display: inline-block;
           text-align: center;
 }
@@ -48,9 +47,6 @@
           color: #016ea5;
 }
 
-.aside-link {
-          /* display: inline-block; */
-}
 .aside-a {
           display: block;
           padding: 0.5em 0.5em;
