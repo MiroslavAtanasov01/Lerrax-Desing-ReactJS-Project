@@ -20,6 +20,14 @@
           text-align: left;
 }
 
+.error {
+          height: 3vh;
+          color: red;
+          padding: 0.1em 0 0 0.5em;
+          text-align: left;
+          font-size: 14px;
+}
+
 .contacts-container {
           padding-bottom: 1em;
 }
