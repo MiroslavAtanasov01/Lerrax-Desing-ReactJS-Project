@@ -5,6 +5,9 @@ import PageTitle from '../../components/helmet'
 import Input from '../../components/input'
 import Link from '../../components/link'
 import UserContext from '../../Context'
+import { withRouter } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class LoginPage extends Component {
     constructor(props) {
@@ -13,6 +16,8 @@ class LoginPage extends Component {
         this.state = {
             email: "",
             password: "",
+            emailError: "",
+            passwordError: "",
         }
     }
 
@@ -29,9 +34,9 @@ class LoginPage extends Component {
     onSubmit = async (event) => {
         event.preventDefault()
 
-        const { email, password } = this.state
+        const { email, password, emailError, passwordError } = this.state
 
-        if (email && password) {
+        if (email && password && emailError === "" && passwordError === "") {
             try {
                 const promise = await fetch('http://localhost:8888/api/user/login', {
                     method: 'POST',
@@ -53,36 +58,64 @@ class LoginPage extends Component {
                     this.props.history.push('/login')
                 }
             } catch (e) {
-                console.log(e);
+                toast.error('Incorrect email/password')
             }
         } else {
             this.props.history.push('/login')
+            toast.error('Please enter valid credentials')
+        }
+    }
+
+    handlerBlurPass = () => {
+        const { password } = this.state
+
+        if (!password) {
+            this.setState({ passwordError: "Please enter your password" })
+        } else {
+            this.setState({ passwordError: "" })
+        }
+    }
+
+    handlerBlurEmail = () => {
+        const { email } = this.state
+
+        if (!email) {
+            this.setState({ emailError: "Please enter your email" })
+        } else {
+            this.setState({ emailError: "" })
         }
     }
 
     render() {
-        const { email, password, } = this.state
+        const { email, password, emailError, passwordError } = this.state
 
         return (
             <PageLayout>
                 <div className={styles.main}>
                     <PageTitle title="Sign in | Lerrax Design" />
+                    <ToastContainer />
                     <form className={styles.container} onSubmit={this.onSubmit}>
                         <h1 className={styles.h1}>Login</h1>
                         <Input
                             value={email}
                             onChange={(e) => this.onChange(e, 'email')}
+                            onBlur={this.handlerBlurEmail}
                             label="Email"
                             id="email"
                             type='login'
+                            placeholder="Enter your email"
+                            error={emailError}
                         />
                         <Input
                             name='password'
                             value={password}
                             onChange={(e) => this.onChange(e, 'password')}
+                            onBlur={this.handlerBlurPass}
                             label="Password"
                             id="password"
                             type='login'
+                            placeholder="Enter your password"
+                            error={passwordError}
                         />
                         <button className={styles.button} type='submit'>Login</button>
                         <div className={styles.div}>
@@ -101,4 +134,4 @@ class LoginPage extends Component {
     }
 }
 
-export default LoginPage
+export default withRouter(LoginPage)
