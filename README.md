@@ -54,7 +54,3 @@ By default, the app is running on:
 ```
 localhost:3000
 ```
-
-to start the application is necessary to add .env file in REST_API directory with following structure:
-
-# .env
