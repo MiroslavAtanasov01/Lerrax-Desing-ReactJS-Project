@@ -1,68 +1,60 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Lerrax-Design-React.js-Project
 
-## Available Scripts
+Lerrax-Design furniture web site. Built as web project for the ReactJS fundamentals course at SoftUni.
 
-In the project directory, you can run:
+It was generated with create-react-app, and used react and react-dom, and react-router-dom. All input forms are with validation of the entered information.
 
-### `npm start`
+The Lerrax-Design web application has two levels of access to it's content: registered user and guest user roles are implemented.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+After registration and subsequent successful Login to the system, a registered user is authorized to add products in Shopping cart and Wishlist. After successfully purchasing the product, the user can see their orders in the profile information. The registered user is permitted to view the following sections:
+"Products", "Details Product", "Shopping cart", "WIshlist", "Account", "Orders","Contacts", "About us".
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+The guest user has access to general information about the company. The following pages are public and visible to any visitor on Lerrax-Design furniture web site : "Products", "Details Product" "Register", "Login", "Contacts", "About us".
 
-### `npm test`
+The application is built entirely on latest JavaScript technologies: React.js (client side) and node.js (server side).
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## REST API and DB
 
-### `npm run build`
+The REST API of Lerrax_Design is available in the repository.
+An open connection to MongoDB is required.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Resolve Dependencies
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+When the project is cloned or downloaded, type in the terminal the following in both Server and Client directory:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+npm / yarn install
+```
 
-### `npm run eject`
+## Run the web server
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+To run the web server type in terminal from Server-Lerrax-Design the following:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+add .env file in REST_API directory with following structure:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+PORT=8888
+DATABASE_URL="mongodb+srv://user:softuni-password@softuni-l24ab.mongodb.net/reactjs?retryWrites=true&w=majority"
+COOKIE="auth-token"
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Run the React app
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The app uses React on client side. To run the React app type in terminal from Lerrax-Design directory the following:
 
-### Code Splitting
+```
+npm start
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+By default, the app is running on:
 
-### Analyzing the Bundle Size
+```
+localhost:3000
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+to start the application is necessary to add .env file in REST_API directory with following structure:
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+# .env
