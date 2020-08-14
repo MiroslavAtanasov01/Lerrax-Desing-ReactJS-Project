@@ -17,6 +17,8 @@ router.post('/verify', controllers.user.post.verifyLogin);
 router.post('/logout', controllers.user.post.logout);
 
 
+router.put('/picture/:id', controllers.user.put.picture);
+
 router.put('/wishlist/:id', controllers.user.put.wishlist);
 
 router.put('/cart/:id', controllers.user.put.cart);

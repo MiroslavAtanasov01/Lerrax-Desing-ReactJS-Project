@@ -92,6 +92,12 @@ module.exports = {
     },
 
     put: {
+        picture: (req, res, next) => {
+            const id = req.params.id;
+            models.user.findByIdAndUpdate({ _id: id }, { picture: (req.body.picture) })
+                .then((updatedUser) => res.send(updatedUser))
+                .catch(next)
+        },
         wishlist: (req, res, next) => {
             const id = req.params.id;
             models.user.findByIdAndUpdate({ _id: id }, {
