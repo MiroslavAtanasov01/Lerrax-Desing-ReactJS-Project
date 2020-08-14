@@ -41,6 +41,25 @@ const ProfilePage = () => {
         }
     }, [params.id, history])
 
+    const openWidget = () => {
+        window.cloudinary.createUploadWidget(
+            {
+                cloudName: 'dzzbxneof',
+                uploadPreset: 'softuni',
+            }, (error, result) => {
+                if (result.event === 'success') {
+                    setPicture(result.info.url)
+                    const picture = result.info.url
+                    const id = params.id
+                    fetch(`http://localhost:8888/api/user/picture/${id}`, {
+                        method: "PUT",
+                        headers: { 'Content-type': 'application/json' },
+                        body: JSON.stringify({ picture })
+                    })
+                }
+            }).open();
+    }
+
     useEffect(() => {
         getData()
     }, [getData])
@@ -63,6 +82,7 @@ const ProfilePage = () => {
                     <div className={styles.main}>
                         <div className={styles.div1}>
                             <img className={styles.profile} alt="Profile" src={picture ? picture : altImage}></img>
+                            <button onClick={openWidget}>Upload Image</button>
                         </div>
                         <div className={styles.div2}>
                             <p>Name: {username}</p>
