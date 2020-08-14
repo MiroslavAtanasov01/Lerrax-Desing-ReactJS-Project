@@ -59,37 +59,33 @@ const DetailsPage = () => {
         // }
     }
 
-    const changeBtn = async () => {
+    const changeBtn = async (type) => {
         const { user } = context
         const id = params.id
 
         const res = await fetch(`http://localhost:8888/api/user/user/${user.id}`)
         const data = await res.json()
 
-        data.wishlist.forEach(e => {
-            if (e._id === id) {
-                setHasWishlist(true)
-            }
-        })
-    }
 
-    const changeBtnA = async () => {
-        const { user } = context
-        const id = params.id
+        if (type === 'wishlist') {
+            data.wishlist.forEach(e => {
+                if (e._id === id) {
+                    setHasWishlist(true)
+                }
+            })
+        } else if (type === 'cart') {
+            data.cart.forEach(e => {
+                if (e._id === id) {
+                    setHasCart(true)
+                }
+            })
+        }
 
-        const res = await fetch(`http://localhost:8888/api/user/user/${user.id}`)
-        const data = await res.json()
-
-        data.cart.forEach(e => {
-            if (e._id === id) {
-                setHasCart(true)
-            }
-        })
     }
 
     if (loggedIn) {
-        changeBtn()
-        changeBtnA()
+        changeBtn('wishlist')
+        changeBtn('cart')
     }
 
 
