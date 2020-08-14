@@ -8,7 +8,7 @@ import UserContext from '../../Context'
 import { withRouter } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import { handlerBlurPassword } from '../../utils/errors'
+import { rePasswordValidator, passwordValidator, usernameValidator, emailValidator } from '../../utils/formValidators'
 
 class RegisterPage extends Component {
     constructor(props) {
@@ -71,69 +71,10 @@ class RegisterPage extends Component {
         }
     }
 
-    handlerBlurPass = () => {
-        const { password } = this.state
-
-        if (password.length < 8) {
-            this.setState({ passwordError: "Password must be at least 8 characters long!" })
-        }
-        if (!/^[\w!@#$%&]+$/.test(password)) {
-            this.setState({ passwordError: "Password can only contain english letters, numbers, underscores, !, @, #, $, %, &, ? and *!" })
-        }
-        if (!password) {
-            this.setState({ passwordError: "Please enter your password" })
-        }
-
-        if (password && /^[\w!@#$%&?]+$/.test(password) && password.length >= 8) {
-            this.setState({ passwordError: "" })
-        }
-    }
-
-    handlerBlurRePass = () => {
-        const { password, rePassword } = this.state
-
-        if (rePassword !== password) {
-            this.setState({ rePasswordError: "Both passwords must match!" })
-        } else {
-            this.setState({ rePasswordError: "" })
-        }
-    }
-
-
-    handlerBlurUsername = () => {
-        const { username } = this.state
-
-        if (username.length < 2) {
-            this.setState({ usernameError: "Username must be at least 2 characters long!" })
-        }
-        if (!/^[\w.]+$/.test(username)) {
-            this.setState({ usernameError: "Username can only contain english letters, numbers, underscores and dots!" })
-        }
-        if (!username) {
-            this.setState({ usernameError: "Please enter your username" })
-        }
-
-        if (username && /^[\w.]+$/.test(username) && username.length >= 2) {
-            this.setState({ usernameError: "" })
-        }
-    }
-
-    handlerBlurEmail = () => {
-        const { email } = this.state
-        const emailRegex = new RegExp(
-            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-        );
-        if (!emailRegex.test(email)) {
-            this.setState({ emailError: "Please enter a correct email address" })
-        }
-        if (!email) {
-            this.setState({ emailError: "Please enter your email" })
-        }
-
-        if (email && emailRegex.test(email)) {
-            this.setState({ emailError: "" })
-        }
-    }
+    handlerBlurEmail = () => { this.setState({ emailError: emailValidator(this.state.email) }) }
+    handlerBlurUsername = () => { this.setState({ usernameError: usernameValidator(this.state.username) }) }
+    handlerBlurPassword = () => { this.setState({ passwordError: passwordValidator(this.state.password) }) }
+    handlerBlurRePassword = () => { this.setState({ rePasswordError: rePasswordValidator(this.state.password, this.state.rePassword) }) }
 
     render() {
         const { email, username, password, rePassword, emailError, usernameError, passwordError, rePasswordError } = this.state
@@ -168,7 +109,7 @@ class RegisterPage extends Component {
                         <Input
                             value={password}
                             onChange={(e) => this.onChange(e, 'password')}
-                            onBlur={this.handlerBlurPass}
+                            onBlur={this.handlerBlurPassword}
                             label="Password"
                             id="password"
                             type='login'
@@ -179,7 +120,7 @@ class RegisterPage extends Component {
                         <Input
                             value={rePassword}
                             onChange={(e) => this.onChange(e, 'rePassword')}
-                            onBlur={this.handlerBlurRePass}
+                            onBlur={this.handlerBlurRePassword}
                             label="Re-password"
                             id="re-password"
                             type='login'
