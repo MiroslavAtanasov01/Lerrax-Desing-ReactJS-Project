@@ -9,7 +9,7 @@ The Lerrax-Design web application has two levels of access to it's content: regi
 After registration and subsequent successful Login to the system, a registered user is authorized to add products in Shopping cart and Wishlist. After successfully purchasing the product, the user can see their orders in the profile information. The registered user is permitted to view the following sections:
 "Products", "Details Product", "Shopping cart", "WIshlist", "Account", "Orders","Contacts", "About us".
 
-The guest user has access to general information about the company. The following pages are public and visible to any visitor on Lerrax-Design furniture web site : "Products", "Details Product" "Register", "Login", "Contacts", "About us".
+The guest user has access to general information about the site. The following pages are public and visible to any visitor on Lerrax-Design furniture web site : "Products", "Details Product" "Register", "Login", "Contacts", "About us".
 
 The application is built entirely on latest JavaScript technologies: React.js (client side) and node.js (server side).
 

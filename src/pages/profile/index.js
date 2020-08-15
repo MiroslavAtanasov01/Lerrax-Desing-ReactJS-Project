@@ -82,7 +82,7 @@ const ProfilePage = () => {
                     <div className={styles.main}>
                         <div className={styles.div1}>
                             <img className={styles.profile} alt="Profile" src={picture ? picture : altImage}></img>
-                            <button onClick={openWidget}>Upload Image</button>
+                            <button onClick={openWidget}>{picture ? "Change picture" : "Upload picture"}</button>
                         </div>
                         <div className={styles.div2}>
                             <p>Name: {username}</p>
