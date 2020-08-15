@@ -8,6 +8,8 @@ import UserContext from '../../Context'
 import { withRouter } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { passwordValidator, emailValidator } from '../../utils/loginValidator'
+
 
 class LoginPage extends Component {
     constructor(props) {
@@ -85,6 +87,9 @@ class LoginPage extends Component {
             this.setState({ emailError: "" })
         }
     }
+
+    handlerBlurEmail = () => { this.setState({ emailError: emailValidator(this.state.email) }) }
+    handlerBlurPassword = () => { this.setState({ passwordError: passwordValidator(this.state.password) }) }
 
     render() {
         const { email, password, emailError, passwordError } = this.state
