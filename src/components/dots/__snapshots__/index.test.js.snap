@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dots component should render Dots component 1`] = `
+<span
+  className="dot"
+/>
+`;

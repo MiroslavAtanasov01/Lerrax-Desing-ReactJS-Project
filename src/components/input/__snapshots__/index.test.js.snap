@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input Component should render Input component 1`] = `
+<div
+  className="undefined-container"
+>
+  <div
+    className="undefined-inner-container"
+  >
+    <label
+      className="undefined-label"
+    />
+  </div>
+  <input
+    className="undefined-input"
+    type="text"
+  />
+</div>
+`;

@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainImg Component should render MainImg component 1`] = `
+<div
+  className="container"
+>
+  <img
+    alt="mainImage"
+    className="mainImg"
+    onClick={[Function]}
+    src="Feb-20-marquees1 placeholdr.jpg"
+  />
+  <div
+    className="inner-container"
+  >
+    <Dots
+      onClick={[Function]}
+    />
+    <Dots
+      onClick={[Function]}
+    />
+    <Dots
+      onClick={[Function]}
+    />
+    <Dots
+      onClick={[Function]}
+    />
+  </div>
+</div>
+`;
