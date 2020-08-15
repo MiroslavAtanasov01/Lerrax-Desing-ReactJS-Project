@@ -1,13 +1,13 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import PageLayout from '.'
+import Footer from '.'
 import TestingEnvironment from '../../test-utils/router'
 
-jest.mock('../header', () => 'Header');
-jest.mock('../footer', () => 'Footer');
+jest.mock('../footer-link', () => 'FooterLink');
+jest.mock('../icons', () => 'Icons');
 
-describe('PageLayout Component', () => {
-    it('should render pagelayout component', () => {
+describe('Footer Component', () => {
+    it('should render Footer component', () => {
         const tree = renderer.create(
             <TestingEnvironment value={{
                 user: {
@@ -15,7 +15,7 @@ describe('PageLayout Component', () => {
                     id: '123'
                 }
             }}>
-                <PageLayout />
+                <Footer />
             </TestingEnvironment>
         ).toJSON()
         expect(tree).toMatchSnapshot()

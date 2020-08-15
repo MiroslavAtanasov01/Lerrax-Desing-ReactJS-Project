@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FooterLink component should render FooterLink component 1`] = `
+<div
+  className="info"
+>
+  <h3 />
+  <p />
+  <p />
+  <p />
+</div>
+`;

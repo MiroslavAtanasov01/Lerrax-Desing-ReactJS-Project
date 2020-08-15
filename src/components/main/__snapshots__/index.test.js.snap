@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main Component should render Main component 1`] = `
+<div
+  className="container"
+>
+  <MainImg />
+  <p
+    className="p"
+  >
+    Popular Across Site
+  </p>
+  <div />
+  <section
+    className="section"
+  >
+    <div
+      className="sectionImage"
+    >
+      <img
+        alt="sectionImage2"
+        className="image"
+        src="03232020-gnp-rugs-694x447_editorial1.jpg"
+      />
+    </div>
+    <div
+      className="section2"
+    >
+      <h1>
+        Find Your Perfect Table Size
+      </h1>
+      <p>
+         Before you start shopping, you need to know two things: how to choose the right table size and how to place it in your room. The perfect table can breathe life into a space and unify your furnishings, so it’s important to get it right.
+      </p>
+      <button
+        className="button"
+        onClick={[Function]}
+      >
+        Read More
+      </button>
+    </div>
+  </section>
+  <section
+    className="section"
+  >
+    <div
+      className="section3"
+    >
+      <h1>
+        Tips on Buying the Best Outdoor Bench
+      </h1>
+      <p>
+         To ensure you score the perfect combination of durability and style, follow our tips on buying outdoor benches. You're sure to find a sturdy all-weather bench that blends seamlessly with your patio's decor.
+      </p>
+      <button
+        className="button"
+        onClick={[Function]}
+      >
+        Read More
+      </button>
+    </div>
+    <div
+      className="sectionImage"
+    >
+      <img
+        alt="sectionImage"
+        className="image"
+        src="03232020-gnp-rugs-694x447_editorial2.jpg"
+      />
+    </div>
+  </section>
+</div>
+`;

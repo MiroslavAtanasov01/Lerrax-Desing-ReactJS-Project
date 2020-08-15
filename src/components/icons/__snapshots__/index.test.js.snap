@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Icons component should render Icons component 1`] = `
+<a
+  className="social"
+/>
+`;

@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Article component should render Article component 1`] = `
+<div
+  className="container"
+>
+  <img
+    alt="article"
+    className="image"
+    onClick={[Function]}
+  />
+  <div>
+    <p
+      className="name"
+    />
+    <p
+      className="price"
+    >
+      BGN 
+    </p>
+  </div>
+</div>
+`;
