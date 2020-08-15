@@ -68,26 +68,6 @@ class LoginPage extends Component {
         }
     }
 
-    handlerBlurPass = () => {
-        const { password } = this.state
-
-        if (!password) {
-            this.setState({ passwordError: "Please enter your password" })
-        } else {
-            this.setState({ passwordError: "" })
-        }
-    }
-
-    handlerBlurEmail = () => {
-        const { email } = this.state
-
-        if (!email) {
-            this.setState({ emailError: "Please enter your email" })
-        } else {
-            this.setState({ emailError: "" })
-        }
-    }
-
     handlerBlurEmail = () => { this.setState({ emailError: emailValidator(this.state.email) }) }
     handlerBlurPassword = () => { this.setState({ passwordError: passwordValidator(this.state.password) }) }
 
@@ -115,7 +95,7 @@ class LoginPage extends Component {
                             name='password'
                             value={password}
                             onChange={(e) => this.onChange(e, 'password')}
-                            onBlur={this.handlerBlurPass}
+                            onBlur={this.handlerBlurPassword}
                             label="Password"
                             id="password"
                             type='login'

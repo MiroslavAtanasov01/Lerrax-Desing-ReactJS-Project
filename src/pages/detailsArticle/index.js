@@ -21,6 +21,7 @@ const DetailsPage = () => {
 
     const getData = useCallback(async () => {
         const id = params.id
+        const { user } = context
         const response = await fetch(`http://localhost:8888/api/article/details/${id}`)
 
         if (!response.ok) {
@@ -31,8 +32,24 @@ const DetailsPage = () => {
             setDescription(article.description)
             setPrice(article.price)
             setImageUrl(article.imageUrl)
+
+            const res = await fetch(`http://localhost:8888/api/user/user/${user.id}`)
+            const data = await res.json()
+
+            data.wishlist.forEach(e => {
+                if (e._id === id) {
+                    setHasWishlist(true)
+                }
+            })
+
+            data.cart.forEach(e => {
+                if (e._id === id) {
+                    setHasCart(true)
+                }
+            })
+
         }
-    }, [params.id, history])
+    }, [params.id, history, context])
 
     useEffect(() => {
         getData()
@@ -48,6 +65,12 @@ const DetailsPage = () => {
             body: JSON.stringify({ id })
         })
 
+        if (type === 'wishlist') {
+            setHasWishlist(true)
+        } else {
+            setHasCart(true)
+        }
+
         // ADD TO LIKES
         // if (type === 'wishlist') {
         //     const userId = user.id
@@ -58,36 +81,6 @@ const DetailsPage = () => {
         //     })
         // }
     }
-
-    const changeBtn = async (type) => {
-        const { user } = context
-        const id = params.id
-
-        const res = await fetch(`http://localhost:8888/api/user/user/${user.id}`)
-        const data = await res.json()
-
-
-        if (type === 'wishlist') {
-            data.wishlist.forEach(e => {
-                if (e._id === id) {
-                    setHasWishlist(true)
-                }
-            })
-        } else if (type === 'cart') {
-            data.cart.forEach(e => {
-                if (e._id === id) {
-                    setHasCart(true)
-                }
-            })
-        }
-
-    }
-
-    if (loggedIn) {
-        changeBtn('wishlist')
-        changeBtn('cart')
-    }
-
 
     if (!name) {
         return (

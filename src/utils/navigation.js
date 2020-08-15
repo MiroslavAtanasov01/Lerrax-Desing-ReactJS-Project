@@ -2,10 +2,6 @@ const getNavigation = (loggedIn, user) => {
 
     const authLinks = [
         {
-            title: "English",
-            link: "/"
-        },
-        {
             title: "Wishlist",
             link: "/wishlist"
         },
@@ -20,10 +16,6 @@ const getNavigation = (loggedIn, user) => {
     ]
 
     const guestLinks = [
-        {
-            title: "English",
-            link: "/"
-        },
         {
             title: "Log in",
             link: "/login"
