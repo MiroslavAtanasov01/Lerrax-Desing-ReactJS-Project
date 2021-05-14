@@ -49,8 +49,8 @@ The app uses React on client side. To run the React app type in terminal from Le
 npm start
 ```
 
-By default, the app is running on:
+The app is running on:
 
 ```
-localhost:3000
+localhost:4000
 ```

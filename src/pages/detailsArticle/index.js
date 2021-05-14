@@ -33,23 +33,25 @@ const DetailsPage = () => {
             setPrice(article.price)
             setImageUrl(article.imageUrl)
 
-            const res = await fetch(`http://localhost:8888/api/user/user/${user.id}`)
-            const data = await res.json()
+            if (loggedIn) {
+                const res = await fetch(`http://localhost:8888/api/user/user/${user.id}`)
+                const data = await res.json()
 
-            data.wishlist.forEach(e => {
-                if (e._id === id) {
-                    setHasWishlist(true)
-                }
-            })
+                data.wishlist.forEach(e => {
+                    if (e._id === id) {
+                        setHasWishlist(true)
+                    }
+                })
 
-            data.cart.forEach(e => {
-                if (e._id === id) {
-                    setHasCart(true)
-                }
-            })
+                data.cart.forEach(e => {
+                    if (e._id === id) {
+                        setHasCart(true)
+                    }
+                })
+            }
 
         }
-    }, [params.id, history, context])
+    }, [params.id, history, context, loggedIn])
 
     useEffect(() => {
         getData()
@@ -71,15 +73,14 @@ const DetailsPage = () => {
             setHasCart(true)
         }
 
-        // ADD TO LIKES
-        // if (type === 'wishlist') {
-        //     const userId = user.id
-        //     fetch(`http://localhost:8888/api/article/${id}`, {
-        //         method: "PUT",
-        //         headers: { 'Content-type': 'application/json' },
-        //         body: JSON.stringify({ userId })
-        //     })
-        // }
+        if (type === 'wishlist') {
+            const userId = user.id
+            fetch(`http://localhost:8888/api/article/${id}`, {
+                method: "PUT",
+                headers: { 'Content-type': 'application/json' },
+                body: JSON.stringify({ userId })
+            })
+        }
     }
 
     if (!name) {

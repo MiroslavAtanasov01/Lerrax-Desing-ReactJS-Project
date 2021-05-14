@@ -87,7 +87,7 @@ module.exports = {
         },
 
         logout: (req, res, next) => {
-            res.clearCookie(config.authCookieName)
+            res.clearCookie(config.development.cookie)
         }
     },
 
