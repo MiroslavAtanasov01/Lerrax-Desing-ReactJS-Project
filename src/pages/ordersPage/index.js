@@ -42,7 +42,7 @@ const OrdersPage = () => {
 
     useEffect(() => {
         getArticle()
-    }, [article, getArticle])
+    }, [getArticle])
 
     if (article.length === 0) {
         return (

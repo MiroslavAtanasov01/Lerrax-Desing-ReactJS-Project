@@ -9,9 +9,9 @@ import UserContext from '../../Context'
 const CartPage = () => {
     const context = useContext(UserContext)
     const [article, setArticle] = useState([])
+    const [update, setUpdate] = useState()
     const { user } = context
     const history = useHistory()
-
 
     const getArticle = useCallback(async () => {
         const response = await fetch(`http://localhost:8888/api/user/user/${user.id}`)
@@ -26,6 +26,7 @@ const CartPage = () => {
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({ id })
         })
+        setUpdate(!update)
     }
 
     const buy = async () => {
@@ -42,6 +43,7 @@ const CartPage = () => {
             method: "PUT",
             headers: { 'Content-type': 'application/json' },
         })
+        setUpdate(!update)
     }
 
     const total = () => {
@@ -76,7 +78,7 @@ const CartPage = () => {
 
     useEffect(() => {
         getArticle()
-    }, [article, getArticle])
+    }, [update, getArticle])
 
     if (article.length === 0) {
         return (
