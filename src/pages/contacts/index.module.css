@@ -1,24 +1,35 @@
 .container {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          height: auto;
-          max-width: 70em;
-          margin: 0 auto;
-          padding: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: auto;
+    max-width: 70em;
+    margin: 0 auto;
+    padding: 3em;
 }
 
-.container h2 {
-          color: #234465;
-          padding-bottom: 20em;
-          font-size: 30px;
+.title {
+    text-align: center;
+    color: #234465;
+    padding: 20px 0 20px 0;
+    font-size: 30px;
 }
 
 .main {
-          border: 2px solid #234465;
+    border: 2px solid #234465;
+    height: 60vh;
+    padding: 30px 0 30px 0;
 }
 
 .main ul {
-          padding: 1em;
-          list-style-type: none;
+    padding: 1em;
+    list-style-type: none;
+}
+
+.map {
+    background-color: white;
+    border: 1px solid white;
+    height: 60vh;
+    width: 50em;
+    margin-right: 4em;
 }
