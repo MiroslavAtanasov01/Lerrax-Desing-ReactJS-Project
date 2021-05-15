@@ -34,9 +34,11 @@ To run the web server type in terminal from Server-Lerrax-Design the following:
 add .env file in REST_API directory with following structure:
 
 PORT=8888
-DATABASE_URL="mongodb+srv://user:softuni-password@softuni-l24ab.mongodb.net/reactjs?retryWrites=true&w=majority"
 COOKIE="auth-token"
-
+PRIVATE_KEY="secret"
+MONGO_USER=user
+MONGO_PASSWORD=softuni-password
+MONGO_DEFAULT_DATABASE=reactjs
 
 npm start
 ```
