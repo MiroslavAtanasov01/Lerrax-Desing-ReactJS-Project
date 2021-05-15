@@ -9,6 +9,7 @@ import UserContext from '../../Context'
 const WishlistPage = () => {
     const context = useContext(UserContext)
     const [article, setArticle] = useState([])
+    const [update, setUpdate] = useState()
     const { user } = context
     const history = useHistory()
 
@@ -25,6 +26,7 @@ const WishlistPage = () => {
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({ id })
         })
+        setUpdate(!update)
     }
 
     const renderLIst = () => {
@@ -54,7 +56,7 @@ const WishlistPage = () => {
 
     useEffect(() => {
         getArticle()
-    }, [article, getArticle])
+    }, [update, getArticle])
 
     if (article.length === 0) {
         return (
