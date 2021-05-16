@@ -1,4 +1,4 @@
-# Lerrax-Design-React.js-Project
+# Lerrax-Design-React.js-Project is uploaded on https://lerrax-desing.herokuapp.com/.
 
 Lerrax-Design furniture web site. Built as web project for the ReactJS fundamentals course at SoftUni.
 
